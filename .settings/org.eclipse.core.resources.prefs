@@ -1,3 +1,4 @@
 eclipse.preferences.version=1
 encoding//mysite/mysite/settings.py=utf-8
 encoding//mysite/polls/models.py=utf-8
+encoding//mysite/polls/views.py=utf-8

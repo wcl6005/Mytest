@@ -16,9 +16,19 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from polls import views
-
+from django.views.generic import TemplateView, ListView, View
+class IndexView(TemplateView):
+    template_name = 'index.html'
 #http://localhost:8000/
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', views.home),
+    #url(r'^$', views.home),
+    #url(r'^$', IndexView.as_view(template_name='services.html')),
+    #url(r'^works/$', IndexView.as_view(template_name='works.html')),
+
+    url(r'^$', IndexView.as_view(template_name='index.html')),
+    
+    #url(r'^film/(.+)/$', IndexView.as_view(template_name='templatefree/film/index.html')),
+    
+    url(r'^film/(.+)/$', views.film, name="film"),
 ]
