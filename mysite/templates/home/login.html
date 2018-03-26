@@ -1,0 +1,90 @@
+{% extends 'home/__base__.html' %}
+{% block content %}
+
+<br><br><br><br><br>
+
+
+    <link type="text/css" href="/static/home/css/login_new.css" rel="stylesheet">
+
+  
+<!--logo s-->
+<div class="logo-wrap clearfix">
+    <div class="gj-logo">
+        <a >
+            <img width="155" height="62" alt="" src="/static/home/images/logo_oday.png" ></a>
+    </div>
+
+</div>
+<!--logo e-->
+<!--wrapper s-->
+<div id="wrapper" style=" width:1000px;">
+    <div class="clearfix">
+        <div class="login-banner">
+            <div>
+                <img src="/static/home/images/login-banner.jpg">
+            </div>
+
+        </div>
+        <div>
+            <div class="login-box">
+                <div class="cont-box1">
+
+
+                    <form id="loginform" action="/login/" method="post">
+                        {% csrf_token %}
+                        <div class="lh24">用户名</div>
+                        <div class="login_username clearfix">
+                            <input value="" name="username"
+                                   type="text" class="input-text usename" title="用户名" tabindex="1">
+                        </div>
+
+
+
+                        <div class="lh24">密码
+                            <a class="field-tips" target="_blank" href="/sendmail/sendmailmasg/">忘记密码？
+                            </a>
+                        </div>
+
+                        <div class="field clearfix">
+                        <input value="" name="password"
+                               type="password" class="input-text usepassword" maxlength="16" tabindex="2">
+                        </div>
+                        
+
+                        <div class="lh24">注册
+                            <a class="field-tips" target="_blank" href="/home/register/">立即注册？
+                            </a>
+                        </div>
+
+                        <div class="lh24">首页
+                            <a class="field-tips" target="_blank" href="/home/index/">返回首页？
+                            </a>
+                        </div>
+                        <p class="N-txt1">
+                            <input value="1"  name="logintime7" type="checkbox" class="chk-vm">
+                            <label> 7天内自动登录 </label>
+                        </p>
+
+                            <input class="btn-org" data-role="submit" type="submit" value="登录">
+                            <span class="msg-submit" style="display:none">正在提交···</span>
+
+                    </form>
+
+                </div>
+
+            </div>
+            <div  class="l-tab" >
+                <div style="padding-left:50px;height:80px; width:80px;">
+                    <p>微信扫码登录</p>
+                   
+                        <img width="80" height="80" alt="吴春龙支付宝支付" src="/static/home/images/吴春龙支付宝支付.jpeg" > 
+                    
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+ </div>
+ <br>
+{% endblock %}
