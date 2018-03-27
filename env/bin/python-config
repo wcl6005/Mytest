@@ -1,4 +1,4 @@
-#!/Users/wuchunlong/local/ZZLARGE-Project-DjangoTest-master/env/bin/python
+#!/Users/wuchunlong/local/mytest/Mytest/env/bin/python
 
 import sys
 import getopt
