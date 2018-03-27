@@ -50,7 +50,7 @@ if [ "${OPT_ENV_FORCE}x" == "-fx" ];then
     python "${BASE_DIR}/manage.py" "clean"
 fi
 
-python "${BASE_DIR}/manage.py" "prepare"
+#python "${BASE_DIR}/manage.py" "prepare"
 build_venv
 
 if [ "${OPT_ENV_FORCE}x" != "-kx" ];then
