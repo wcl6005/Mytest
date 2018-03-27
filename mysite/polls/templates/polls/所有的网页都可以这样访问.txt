@@ -1,0 +1,2 @@
+#http://localhost:8000/services/  #网页名不加后缀.html
+http://localhost:8000/index/pricing/    #网页名不加后缀.html

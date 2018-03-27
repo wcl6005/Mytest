@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Home</title>
+<link href="/static/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+	 
+	<link rel="stylesheet" type="text/css" href="/static/css/slider.css" />
+	<script type="text/javascript" src="/static/js/modernizr.custom.28468.js"></script>
+	<script type="text/javascript" src="/static/js/jquery.cslider.js"></script>
+	<script type="text/javascript">
+		$(function() {
+				
+			$('#da-slider').cslider({
+				autoplay	: true,
+					bgincrement	: 450
+				});
+				
+			});
+	</script>
+		
+	<!-- popup -->
+
+
+</head>
+<body>
+
+<div class="slider_bg s7" >
+	<div id="da-slider" class="da-slider" >
+		<div class="da-slide" style="height:138px; width:770px;">
+			<h2 class="title">欢迎您的光临</h2>
+            <h3 class="title" style="margin-left:58px;">上海鑫相信息科技有限公司</h3>
+            <p class="description">wuchunlong.eastasia.cloudapp.azure.com</p> 
+		</div>
+				
+		<div class="da-slide" style="height:138px; width:770px;">
+			<h2 class="title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;闪电建站</h2>
+            <h3 class="title">精湛技术 VS 高端定制</h3>
+             <p class="description">&nbsp;&nbsp;&nbsp;让您的公司迅速打通互联网营销渠道 展示您的企业品牌形象</p> 
+		</div>
+		<div class="da-slide" style="height:138px; width:770px;">
+			<h2 class="title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;网站托管</h2>
+            <h3 class="title">全程管理 VS 用心服务</h3>
+            <p class="description">让您轻松当老板 无后顾之忧</p> 
+		</div>
+					
+	</div> 	
+</div>
+<a  href="/services/" class="button scroll"><img src="/static/images/arrow.png"></a>
+
+{% include 'polls/menu.html' %}
+
+{% block content %}{% endblock %}
+
+<a href="/" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
+ 
+</body>
+</html>

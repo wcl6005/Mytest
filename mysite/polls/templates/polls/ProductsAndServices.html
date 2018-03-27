@@ -1,0 +1,443 @@
+{% extends 'polls/__base__.html' %}
+{% block content %}
+
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <!--1、改变字体大小 bootstrap.css中 font-size: 14px; -->
+    <link type="text/css" href="/static/Danyang/bootstrap.css" rel="stylesheet">
+    <!--2、获得doc.css文件中 *.png文件 http://www.212300.com/gg/web/images/u77_mouseOver.png 
+     注意：/static/Danyang/css/doc.css文件中图像文件路径：   ../images/mouse.png
+          /static/Danyang/images/mouse.png-->
+    <link type="text/css" href="/static/Danyang/css/doc.css" rel="stylesheet">  
+    <script type="text/javascript" src="/static/Danyang/bootstrap.min.js"></script>
+
+
+<div class="cpfw-wrap gbg">
+  <div class="container block">
+    <div class="b-tit">
+      <h2 class="gbg">平台产品与服务</h2>
+    </div>
+    <div class="cpfw-cot">
+      <div class="cpfw-cot-top">
+        <ul id="myTabs" role="tablist">
+          <li class="active" role="presentation"><a href="#web" id="web-tab" role="tab" data-toggle="tab" aria-controls="web" aria-expanded="true">网站建设</a></li>
+            <li role="presentation"><a href="#app" role="tab" id="app-tab" data-toggle="tab" aria-controls="app">APP开发</a></li>
+            <li role="presentation"><a href="#weixin" role="tab" id="weixin-tab" data-toggle="tab" aria-controls="weixin">微信开发</a></li>
+              		<li role="presentation"><a href="#kaifa" role="tab" id="kaifa-tab" data-toggle="tab" aria-controls="kaifa">运营托管</a></li>
+            </ul>
+           </div>
+          <div class="cpfw-cot-main">
+            <div id="myTabContent" class="tab-content">
+              <div class="tab-pane in active" role="tabpanel" id="web" aria-labelledby="web-tab">
+                <ul class="cpfw-list row fst">
+                  <li class="cpfw-hed col-xs-3">
+                    <div>
+                      <h3>网站建设</h3>
+                      <div style="padding:0 3px;">
+                        <p>自主开发版权、web前端制作、原创设计方案</p>
+                        <img alt="网站建设" src="/static/Danyang/dnimg.png" width="132" height="92" class="center-block" style="margin-top:84px;">
+                        <a href="tencent://message/?uin=451156350&amp;Site=212300.com&amp;Menu=yes" class="dz-btn center-block">定制开发</a>
+                        <p>量身定制的网站设计能够充分体现您对网站的需求、提高用户粘性吸引目标用户深入访问。</p>
+                        </div>
+                      </div>
+                  </li>
+
+
+
+
+
+
+
+                  <li class="col-xs-3">
+                        <div>
+                          <h4>企业展示型</h4>
+                          <strong>
+                              企业官网设计塑造企业品牌形象                                                                                      </strong>
+                          <img alt="网站建设" src="/static/Danyang/cp1.png" width="81" height="80">
+                          <ul class="cp-info">
+                            <li>支持多语言版本</li>
+                              <li>手机端可绑定微信公共平台</li>
+                              <li>智能后台管理PC、手机端一键发布</li>
+                              <li>适用企业：企业宣传型、品牌型网站等</li>                                                                                  </ul>
+                          <a href="tencent://message/?uin=451156350&amp;Site=212300.com&amp;Menu=yes" class="ljdz-btn"><span><i>￥</i><b>12000</b>/ 起</span><em>立即定制</em></a>
+                        </div>
+                       </li>
+
+
+                       <li class="col-xs-3">
+                        <div>
+                          <h4>B2C电商型</h4>
+                          <strong>
+                          实现客户需求达到商业目标                                                        </strong>
+                          <img alt="网站建设" src="/static/Danyang/cp2.png" width="81" height="80">
+                          <ul class="cp-info">
+                                                        <li>便捷的订单查询和管理</li>
+                              <li>完善客户服务系统</li>
+                              <li>智能后台管理处理订单更高效</li>
+                              <li>适用企业：电商企业、传统企业转型等</li>                                                      </ul>
+                          <a href="tencent://message/?uin=451156350&amp;Site=212300.com&amp;Menu=yes" class="ljdz-btn"><span><i>￥</i><b>40000</b>/ 起</span><em>立即定制</em></a>
+                        </div>
+                       </li><li class="col-xs-3">
+                        <div>
+                          <h4>视频类网站</h4>
+                          <strong>
+                            实现极速点播响应，强化新主流视频媒体                          </strong>
+                          <img alt="网站建设" src="/static/Danyang/cp3.png" width="81" height="80">
+                          <ul class="cp-info">
+                              <li class="icon-cirle">大文件上传</li>
+                              <li class="icon-cirle">视频转码</li>
+                              <li class="icon-cirle">智能网站后台</li>
+                              <li>优化用户体验，观看更流畅</li>                          </ul>
+                          <a href="tencent://message/?uin=451156350&amp;Site=212300.com&amp;Menu=yes" class="ljdz-btn"><span><i>￥</i><b>20000</b>/ 起</span><em>立即定制</em></a>
+                        </div>
+                       </li>                  
+                  </ul>
+              </div>
+              <div class="tab-pane" role="tabpanel" id="app" aria-labelledby="app-tab">
+                <ul class="cpfw-list row fst">
+                  <li class="cpfw-hed col-xs-3">
+                    <div>
+                      <h3>APP开发</h3>
+                      <div>
+                        <p>互动体验创意设计，注重用户体验建设</p>
+                        <img alt="APP开发" src="/static/Danyang/appimg.png" width="141" height="109" class="center-block" style="margin-top:67px;">
+                        <a href="tencent://message/?uin=451156350&amp;Site=212300.com&amp;Menu=yes" class="dz-btn center-block">行业领域</a>
+                        <p>基于自主版权的原创设计，根据您的需求制作ios/Android App手机软件。</p>
+                        </div>
+                      </div>
+                   </li>
+                  <li class="col-xs-3">
+                    <div>
+                      <h4>电子商务</h4>
+                      <strong>打造一站式购物电子商务平台</strong>
+                      <img alt="电子商务" src="/static/Danyang/app1.png" width="81" height="80">
+                      <ul class="cp-info">
+                        <li class="zs-row">集合产品展示、产品推荐、在线支付、查看物流、订单管理、 销售报表和优惠积分等功能于一体的移动购物软件。</li>
+                        <li class="icon-cirle">应用行业：传统厂商、大型品牌厂商。</li>
+                        <li class="icon-cirle">客户端：android/ios客户端，web商家端，服务端等整体解决方案。</li>
+                      </ul>
+                    </div>
+                   </li>
+                  <li class="col-xs-3">
+                    <div>
+                      <h4>生活服务</h4>
+                      <strong>整合吃、住、行、游、娱服务平台</strong>
+                      <img alt="生活服务" src="/static/Danyang/app2.png" width="81" height="80">
+                      <ul class="cp-info">
+                        <li class="zs-row" style="height: 115px;">解决用户日常生活需求，聚集消费群体，整合吃、住、行、游、娱服务平台，直观的营销效果及追踪预估，为您带来更多的商家。</li>
+                        <li class="icon-cirle">应用领域：团购、外卖。</li>
+                        <li class="icon-cirle">客户端：android/ios客户端，web商家端、服务端等整体解决方案。</li>
+                      </ul>
+                    </div>
+                   </li>
+                  <li class="col-xs-3">
+                    <div>
+                      <h4>物流行业</h4>
+                      <strong>实现同城货运、城市物流叫车平台</strong>
+                      <img alt="物流行业" src="/static/Danyang/app3.png" width="81" height="80">
+                      <ul class="cp-info">
+                        <li class="zs-row">致力于为物流企业和普通网络客户群体提供全面的信息服务。解决货物跟踪问题，极大提升物流行业的效率。</li>
+                        <li class="icon-cirle">应用行业：物流企业、货运企业等。</li>
+                        <li class="icon-cirle">客户端：android/ios货主端，司机端、web管理端，服务端等整体解决方案。</li>
+                      </ul>
+                    </div>
+                   </li>
+                  </ul>
+              </div>
+              <div class="tab-pane" role="tabpanel" id="weixin" aria-labelledby="weixin-tab">
+                <ul class="cpfw-list row fst">
+                  <li class="cpfw-hed col-xs-3">
+                    <div>
+                      <h3>微信开发</h3>
+                      <div>
+                        <p>深入到每个营销环节，让微信平台更具特色</p>
+                        <img alt="微信开发" src="/static/Danyang/wxkf.png" width="152" height="143" class="center-block mt" style="margin-top:33px !important;">
+                        <a href="tencent://message/?uin=451156350&amp;Site=212300.com&amp;Menu=yes" class="dz-btn center-block">开发功能</a>
+                        <p>解决微信的平台搭建、营销策划和电商管理，将您的业务推到全新的高度。</p>
+                        </div>
+                      </div>
+                   </li>
+                  <li class="col-xs-3">
+                    <div class="wxkfbg-1">
+                      <h4>微信基础设置</h4>
+                      <strong>合理微信设置有效引流</strong>
+                      <img alt="微信基础设置" src="/static/Danyang/kf1.png" width="81" height="80">
+                      <ul class="cp-info">
+                        <li class="zs-row">合理规划群发消息、自定义菜单、通知中心、公众号设置等功能模块，旨在提升用户体验。</li>
+                        <li>
+                          包括：
+                          <ul>
+                            <li class="icon-cirle">自定义菜单</li>
+                            <li class="icon-cirle">自动回复</li>
+                            <li class="icon-cirle">二维码</li>
+                            <li class="icon-cirle">头像等设置</li>
+                           </ul>
+                        </li>
+                      </ul>
+                    </div>
+                   </li>
+                  <li class="col-xs-3">
+                    <div class="wxkfbg-2">
+                      <h4>微信功能开发</h4>
+                      <strong>个性化功能定制开发</strong>
+                      <img alt="微信功能开发" src="/static/Danyang/kf2.png" width="81" height="80">
+                      <ul class="cp-info">
+                        <li class="zs-row">减少宣传成本，建立企业与消费者、客户的一对一互动和沟通，进行促销、推广、宣传售后等。</li>
+                        <li>
+                          包括：
+                          <ul>
+                            <li class="icon-cirle">微官网</li>
+                            <li class="icon-cirle">微商城</li>
+                            <li class="icon-cirle">微信公众开发</li>
+                            <li class="icon-cirle">微平台开发等</li>
+                           </ul>
+  </li>
+                      </ul>
+                    </div>
+                   </li>
+                  <li class="col-xs-3">
+                    <div class="wxkfbg-3">
+                      <h4>微信H5开发</h4>
+                      <strong>全新的设计体验与传播方式</strong>
+                      <img alt="微信H5开发" src="/static/Danyang/kf3.png" width="81" height="80">
+                      <ul class="cp-info">
+                        <li class="zs-row">根据您的需求制作H5页面。自主版权原创设计，给目标用户带来全新的视觉交互体验。<br><br></li>
+                        <li>
+                          包括：
+                          <ul>
+                            <li class="icon-cirle">微信活动</li>
+                            <li class="icon-cirle">H5小游戏</li>
+                            <li class="icon-cirle">创意H5设计开发</li>
+                            <li class="icon-cirle">H5页面制作等</li>
+                           </ul>
+                        </li>
+                      </ul>
+                    </div>
+                   </li>
+                  </ul>
+              </div>
+              <div role="tabpanel" class="tab-pane" id="kaifa" aria-labelledby="kaifa-tab">
+                <ul class="cpfw-list row fst">
+                  <li class="cpfw-hed col-xs-3">
+                    <div>
+                      <h3>运营托管</h3>
+                      <div>
+                        <p>一站式网络托管，全方位立体营销</p>
+                        <img alt="运营托管" src="/static/Danyang/yytgimg.png" width="108" height="94" class="center-block" style="margin-top:82px;">
+                        <a href="tencent://message/?uin=451156350&amp;Site=212300.com&amp;Menu=yes" class="dz-btn center-block">更多服务</a>
+                        <p>致力为客户提供全方位的网络营销解决方案，助力企业利润增长和提高竞争力。</p>
+                      </div>
+                      </div>
+                   </li>
+                  <li class="col-xs-3">
+                    <div class="wxkfbg-4">
+                      <h4>网站推广</h4>
+                      <strong>挖掘潜在客户，提升市场占有率</strong>
+                      <img alt="网站推广" src="/static/Danyang/yytg1.png" width="81" height="80">
+                      <ul class="cp-info">
+                        <li>
+                          您遇到的问题：
+                          <ul>
+                            <li class="icon-cirle">网站上线没客户</li>
+                            <li class="icon-cirle">人手不够没时间</li>
+                            <li class="icon-cirle">欠缺经验不会做</li>
+                            <li class="icon-cirle">一直烧钱没效果</li>
+                           </ul>
+                        </li>
+                        <li>
+                          您期望的效果：
+                          <ul>
+                            <li class="icon-cirle">定位精准、营销得当</li>
+                            <li class="icon-cirle">提高您网站的成交率</li>
+                            <li class="icon-cirle">让您获得更多订单</li>
+                           </ul>
+                        </li>
+                      </ul>
+                    </div>
+                   </li>
+                  <li class="col-xs-3">
+                    <div class="wxkfbg-5">
+                      <h4>技术维护</h4>
+                      <strong>网站技术维护、提升网站稳定性</strong>
+                      <img alt="技术维护" src="/static/Danyang/yytg2.png" width="81" height="80">
+                      <ul class="cp-info">
+                        <li>
+                          您的需求：
+                          <ul>
+                            <li class="icon-cirle">服务器及相关软硬件的维护</li>
+                            <li class="icon-cirle"> 数据库维护，有效地利用数据</li>
+                            <li class="icon-cirle">内容的更新、调整等</li>
+                            <li class="icon-cirle">制定相关网站维护的规定</li>
+                           </ul>
+                        </li>
+                        <li>
+                          我们为您解决：
+                          <ul>
+                            <li class="icon-cirle">网站后台升级</li>
+                            <li class="icon-cirle">网站内容管理系统升级</li>
+                            <li class="icon-cirle">设计精美网页</li>
+                           </ul>
+                        </li>
+                      </ul>
+                    </div>
+                   </li>
+                  <li class="col-xs-3">
+                    <div class="wxkfbg-6">
+                      <h4>功能拓展</h4>
+                      <strong>拓展网站功能、提升服务时效</strong>
+                      <img alt="功能拓展" src="/static/Danyang/yytg3.png" width="81" height="80">
+                      <ul class="cp-info">
+                        <li>
+                          您遇到的问题：
+                          <ul>
+                            <li class="icon-cirle">网站功能不完善</li>
+                            <li class="icon-cirle">功能模块不健全</li>
+                            <li class="icon-cirle">日常维护工作繁杂</li>
+                            <li class="icon-cirle">网站运营效率低</li>
+                           </ul>
+                        </li>
+                        <li>
+                          我们提供的服务：
+                          <ul>
+                            <li class="icon-cirle">前端设计</li>
+                            <li class="icon-cirle">新增功能模块管理</li>
+                            <li class="icon-cirle">用户维护更便捷</li>
+                           </ul>
+                        </li>
+                      </ul>
+                    </div>
+                   </li>
+                  </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="jjfa-wrap">
+  <div class="container block">
+    <div class="b-tit">
+      <h2>解决方案</h2>
+      </div>
+    <div class="lh200 text-center fst">我们为客户提供网站建设、APP开发、微信开发、网站运营托管等多项网络服务。<br>
+      专业服务团队支持，一站式贴心服务获得了客户的一致认可。我们致力于为您提供超一流的网站建设服务体验。</div>
+    <div class="jjfa-cot">
+      <ul class="uk-grid uk-grid-width-1-4">
+        <li>
+          <a href="#">
+            <div>
+              <b class="jjfa-icon ji-1"></b>
+              <h3>网站建设</h3>
+              <p class="fst">致力于为企业提供原创设计、自主版权研发等一站式建站服务，分析受众需求及用户浏览习惯，助企业提升互联网品牌形象和竞争力并实现商业价值最大化</p>
+              </div>
+            </a>
+          </li>
+        <li>
+          <a href="#">
+            <div>
+              <b class="jjfa-icon ji-2"></b>
+              <h3>APP开发</h3>
+              <p class="fst">以服务用户为核心，提供完整的移动互联网解决方案，包括iOS手机端、Android手机端、设计、开发、测试、发布、运维及版本迭代的全生命周期管理APP定制开发服务</p>
+              </div>
+            </a>
+          </li>
+        <li>
+          <a href="#">
+            <div>
+              <b class="jjfa-icon ji-3"></b>
+              <h3>微信开发</h3>
+              <p class="fst">微信开发即微信公众平台开发，将企业信息、服务、活动等内容通过微信网页的方式进行表现。将企业品牌展示给微信用户，减少宣传成本，形成了一种主流的线上线下微信互动营销方式</p>
+              </div>
+            </a>
+          </li>
+        <li>
+          <a href="#">
+            <div>
+              <b class="jjfa-icon ji-4"></b>
+              <h3>运营托管</h3>
+              <p class="fst">我们将用我们丰富的实战经验为您打造网络营销系统。全方位解决企业的营销、定位、品牌、传播等问题，实现全网营销，大幅提升企业价值和利润</p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    </div>
+    <div class="kexin-wrap fwbg">
+      <div class="container">
+        <div class="kx-tit">
+          <h2>用心做产品为核心</h2>
+          <span class="line-lef"></span>
+          <span class="line-rig"></span>
+         </div>
+        <div class="kexin-cot">
+          <ul class="uk-grid uk-grid-width-1-2">
+            <li>
+              <div class="anm-1">
+                <div class="svg">
+                  <span class="anm-box"></span>
+                  <span class="anm-meu"></span>
+                  <span class="anm-smc"></span>
+                  <span class="anm-bigc"></span>
+                </div>
+                <div class="kx-txt">
+                  <h3>自主版权</h3>
+                  <p>有版权就可以任性，用户无后顾之忧。</p>
+                  <div class="clearfix"><span>智能后台</span><span>自主开发</span><span>知识产权</span></div>
+                </div>
+              </div>
+             </li>
+            <li>
+              <div class="anm-2">
+                <div class="svg">
+                  <span class="anm-chi"></span>
+                  <span class="anm-bi"></span>
+                </div>
+                <div class="kx-txt">
+                  <h3>原创设计</h3>
+                  <p>坚持原创设计，用心做好产品。</p>
+                  <div class="clearfix"><span>原创思维</span><span>网站策划</span><span>设计理念</span></div>
+                </div>
+              </div>
+             </li>
+            <li>
+              <div class="anm-3">
+                <div class="svg">
+                  <span class="anm-pem"></span>
+                  <span class="anm-pel"></span>
+                  <span class="anm-per"></span>
+                  <span class="anm-msg"></span>
+                </div>
+                <div class="kx-txt">
+                  <h3>全程顾问</h3>
+                  <p>专心专注解答，消除客户所有疑问。</p>
+                  <div class="clearfix"><span>售前咨询</span><span>需求沟通</span><span>售后服务</span></div>
+                </div>
+              </div>
+             </li>
+            <li>
+              <div class="anm-4">
+                <div class="svg">
+                  <span class="anm-sjb"></span>
+                  <span class="anm-sjt"></span>
+                  <span class="anm-sjm"></span>
+                  <span class="anm-sjbot"></span>
+                </div>
+                <div class="kx-txt">
+                  <h3>用户体验</h3>
+                  <p>Axure原型演示，精准满足客户需求。</p>
+                  <div class="clearfix"><span>用户体验</span><span>交互设计</span><span>流程演示</span></div>
+                </div>
+              </div>
+             </li>
+
+           </ul>
+         </div>
+        </div>
+    </div>
+
+
+{% endblock %}
