@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 from monthdelta import monthdelta
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-from .models import Company, Material, Order
+
 from django.contrib.auth.models import User, Group
 import datetime
 import os
@@ -16,3 +16,8 @@ import re
 import tempfile
 import uuid
 import xlsxwriter
+
+@login_required
+def billing(request, page):  
+    return render(request, 'account/billing.html', context=locals())
+
