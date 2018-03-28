@@ -1,4 +1,4 @@
-#!/Users/wuchunlong/local/ZZLARGE-Project-DjangoTest-master/env/bin/python2.7
+#!/Users/wuchunlong/local/mytest/Mytest/env/bin/python2.7
 
 ##############################################################################
 #
