@@ -1,4 +1,4 @@
-#!/Users/wuchunlong/local/mytest/Mytest/env/bin/python2.7
+#!/Users/wuchunlong/local/a1234/env/bin/python2.7
 # Copyright (c) 2005-2012 Stephen John Machin, Lingfo Pty Ltd
 # This script is part of the xlrd package, which is released under a
 # BSD-style licence.

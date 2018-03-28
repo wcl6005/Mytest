@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 Django settings for mysite project.
 
@@ -120,8 +119,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-#1、设置登录路径。2、在settings.py相同目录的urls.py中， url(r'^login/$', auth_views.LoginView.as_view(), name='login'),3、在templates目录下，新建registration/login.html。4、http://localhost:8000/login/
-LOGIN_URL = '/login/'
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
-
