@@ -22,13 +22,8 @@ class IndexView(TemplateView):
 #http://localhost:8000/
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    #url(r'^$', views.home),
-    #url(r'^$', IndexView.as_view(template_name='services.html')),
-    #url(r'^works/$', IndexView.as_view(template_name='works.html')),
 
     url(r'^$', IndexView.as_view(template_name='index.html')),
-    
-    #url(r'^film/(.+)/$', IndexView.as_view(template_name='templatefree/film/index.html')),
-    
+        
     url(r'^film/(.+)/$', views.film, name="film"),
 ]
