@@ -57,4 +57,5 @@ if [ "${OPT_ENV_FORCE}x" != "-kx" ];then
     rebuild_db
 fi
 
-launch_webapp
+cp ${BASE_DIR}/mysite/db.sqlite3 ${BASE_DIR}/mysite/demo.sqlite3
+launch_webapp 
