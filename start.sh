@@ -35,6 +35,7 @@ function rebuild_db {
 	python "${BASE_DIR}/mysite/initdb.py"
 }
 
+
 function launch_webapp {
     cd ${BASE_DIR}/mysite
     python "manage.py" "runserver"
