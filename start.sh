@@ -1,5 +1,5 @@
+# -*- coding: utf-8 -*-
 #!/usr/bin/env bash
-
 pushd `dirname $0` > /dev/null
 BASE_DIR=`pwd -P`
 popd > /dev/null
@@ -38,7 +38,7 @@ function rebuild_db {
 
 function launch_webapp {
     cd ${BASE_DIR}/mysite
-    python "manage.py" "runserver"
+    python "manage.py" "runserver" "9000"
 }
 
 #############
@@ -54,7 +54,7 @@ fi
 python "${BASE_DIR}/manage.py" "prepare"
 build_venv
 
-if [ "${OPT_ENV_FORCE}x" != "-kx" ];then
+if [ "${OPT_ENV_FORCE}x" == "-ix" ];then
     rebuild_db
 fi
 

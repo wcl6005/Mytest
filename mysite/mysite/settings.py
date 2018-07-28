@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'account.apps.AccountConfig',
+    'account.apps.AccountConfig', #添加一个应用，创建account/apps.py文件
+    'home.apps.AccountConfig',  
+    
 ]
 
 MIDDLEWARE = [
