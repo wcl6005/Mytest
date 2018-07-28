@@ -6,4 +6,7 @@ encoding//mysite/account/tests.py=utf-8
 encoding//mysite/account/urls.py=utf-8
 encoding//mysite/account/views.py=utf-8
 encoding//mysite/myAPI/strAPI.py=utf-8
+encoding//mysite/myhome/apps.py=utf-8
+encoding//mysite/myhome/myhome.py=utf-8
+encoding//mysite/myhome/urls.py=utf-8
 encoding//mysite/mysite/urls.py=utf-8
