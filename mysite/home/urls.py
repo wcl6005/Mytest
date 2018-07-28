@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from django.conf.urls import url, include
-from . import myhome
+from . import home
 
 urlpatterns = [
-    url(r'^test/', myhome.test, name="test"), 
+    url(r'^test/', home.test, name="test"), 
 
 ]
