@@ -1,8 +1,0 @@
-2018.07.28
-这是一个python2.7 django1.8.2  uikit vue 的开发框架。
-主要特点：项目内各个应用彼此独立，即：一个应用具备所有的views.py urls.py、models.py、templates。
-主要技术：initdb.py数据初始化、env虚拟机、模块自动安装
-主要功能：
-   用户注册。自动注册：一个超级用户admin、一个普通用户test；密码都是 1234qazx.
-   用户登录
-   图像验证码

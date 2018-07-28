@@ -5,6 +5,5 @@ encoding//mysite/account/models.py=utf-8
 encoding//mysite/account/tests.py=utf-8
 encoding//mysite/account/urls.py=utf-8
 encoding//mysite/account/views.py=utf-8
-encoding//mysite/myAPI/checkcode.py=utf-8
 encoding//mysite/myAPI/strAPI.py=utf-8
 encoding//mysite/mysite/urls.py=utf-8

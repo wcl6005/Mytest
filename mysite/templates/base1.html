@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-       
+        <title>{% block title %}{{ gt.layout.title }}{% endblock %}</title>
         <link href="/static/home/images/favicon.ico" rel="stylesheet">
         <link href="/static/home/css/uikit.min.css" rel="stylesheet">
 
@@ -31,9 +31,21 @@
         {% block header %}
         <div class="uk-margin">
 		    <nav class="uk-navbar">
-		        <a class="uk-navbar-brand" href="/index/"><i class="uk-icon-home"></i> Home</a>
+		        <a class="uk-navbar-brand" href="/home/index/"><i class="uk-icon-home"></i> Home</a>
 
-				
+				<ul class="uk-navbar-nav"> 
+                	<li class="uk-parent uk-active " data-uk-dropdown>
+                        <a href="#"><i class="uk-icon-delicious"></i> js单元测试 </a>
+                        <div class="uk-dropdown uk-dropdown-navbar">
+                            <ul class="uk-nav uk-nav-navbar">
+
+                                <li><a href="/vue/unittest/"> Vue单元测试 </a></li>
+                                <li><a href=""> -------------------------- </a></li>
+                        
+                            </ul>
+                        </div>
+                	</li>
+		        </ul>
                 <ul class="uk-navbar-nav"> 
                     <li class="uk-parent uk-active " data-uk-dropdown>
                         <a href="#"><i class="uk-icon-firefox"></i> 常用资料 </a>
@@ -65,7 +77,86 @@
                             </ul>
                         </div>
                     </li>
-                </ul>              
+                </ul>
+                <ul class="uk-navbar-nav"> 
+                    <li class="uk-parent uk-active " data-uk-dropdown>
+                        <a href="#"><i class="uk-icon-file-text"></i> 模板 </a>
+                        <div class="uk-dropdown uk-dropdown-navbar">
+                            <ul class="uk-nav uk-nav-navbar">
+
+                                <li><a href="/test/css_border-radius/">  矩形、圆形、三角形、多边形、爱心、八卦 菱形等 </a></li>
+                                 <li><a href=""> -------------------------- </a></li>
+
+                                <li><a href="/test/temp/">  克隆网站前台的方法 </a></li>
+                                 <li><a href=""> -------------------------- </a></li>
+
+                                <li><a href="http://www.cssmoban.com/">  模板之家 </a></li>
+                                 <li><a href=""> -------------------------- </a></li>
+                                <li><a href="http://www.777moban.com/"> 777模板 </a></li>
+                                <li><a href=""> -------------------------- </a></li>
+                                <li><a href="/runtool/openfilehtml/"> HTML </a></li>
+                                <li><a href=""> -------------------------- </a></li>
+                                <li><a href="/runtool/openfilejs/"> JavaScript </a></li>
+                                <li><a href=""> -------------------------- </a></li>
+                                <li><a href="http://www.anhua0737.com/job"> 蜗牛门户 </a></li>
+                                <li><a href=""> -------------------------- </a></li>
+
+                                <li><a href="http://www.ypy.hk/h-col-251.html"> 微盟建站 </a></li>
+                                <li><a href=""> -------------------------- </a></li>
+                        
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+
+                <ul class="uk-navbar-nav"> 
+                    <li class="uk-parent uk-active " data-uk-dropdown>
+                        <a href="/runtool/Runhtml50/"><i class="uk-icon-wrench"></i> 在线工具 </a>
+                        <div class="uk-dropdown uk-dropdown-navbar">
+                            <ul class="uk-nav uk-nav-navbar">
+
+                               <li><a href="http://tool.chinaz.com/tools/jsformat.aspx"> HTMLCSS代码格式化工具</a></li>
+                               <li><a href=""> -------------------------- </a></li>
+                                <li><a href="/runtool/gettxt/?fname=blog/templates/runtool/testCodeRuntTme.html"> 测试代码运行时间 </a></li>
+                                 <li><a href=""> -------------------------- </a></li>
+                                <li><a href="http://www.runoob.com/try/try.php?filename=tryhtml_intro"> HTMLCSSJS在线运行工具 </a></li>
+                                <li><a href=""> -------------------------- </a></li>
+
+                                <li><a href="/runtool/Runhtml50/"> HTML50% </a></li>
+                                <li><a href=""> -------------------------- </a></li>
+                                <li><a href="/runtool/openfilehtml/"> HTML </a></li>
+                                <li><a href=""> -------------------------- </a></li>
+                                <li><a href="/runtool/openfilejs/"> JavaScript </a></li>
+                                <li><a href=""> -------------------------- </a></li>
+                                <li><a href="/runtool/openfilepy/"> PYTHON </a></li>
+                                <li><a href=""> -------------------------- </a></li>
+
+                                <li><a href="/test/get_safe/"> 获得转义字符 </a></li>
+                                <li><a href=""> -------------------------- </a></li>
+                        
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="uk-navbar-nav"> 
+                    <li class="uk-parent uk-active " data-uk-dropdown>
+                        <a href="#"><i class="uk-icon-star"></i> 应用分享 </a>
+                        <div class="uk-dropdown uk-dropdown-navbar">
+                            <ul class="uk-nav uk-nav-navbar">
+
+                                <li> <a  href="/payment/payment/"> 付款 </a></li>
+                                <li><a href=""> -------------------------- </a></li>
+                                <li> <a  href="/test/qrcode/https://www.baidu.com/"> 制作二维码 </a></li>
+                                <li><a href=""> -------------------------- </a></li>
+                                <li> <a  href="/account/billing/"> 高域传媒 </a></li>
+                                <li><a href=""> -------------------------- </a></li>
+                        
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+
+                
 
 		        <div class="uk-navbar-flip">
 		          <ul class="uk-navbar-nav">
