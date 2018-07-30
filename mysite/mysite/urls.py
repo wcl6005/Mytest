@@ -27,6 +27,5 @@ urlpatterns = [
     url(r'^account/', include('account.urls')),
     
     url(r'^$', RedirectView.as_view(url='/home/index/', query_string=True)),
-
     url(r'^home/', include('home.urls')),
 ]
