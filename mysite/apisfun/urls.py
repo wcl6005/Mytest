@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from django.conf.urls import url, include
-import users
+from . import myusers
 
 urlpatterns = [
-    url(r'^registerapi/', users.registerapi, name="registerapi"),   
-    url(r'^loginapi/', users.loginapi, name="loginapi"),            
+    url(r'^registerapi/', myusers.registerapi, name="myregisterapi"),   
+    url(r'^loginapi/', myusers.loginapi, name="myloginapi"),            
 ]
