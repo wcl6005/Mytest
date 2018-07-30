@@ -9,9 +9,9 @@ class IndexView(TemplateView):
 
 urlpatterns = [
     url(r'^index/$', IndexView.as_view()), 
-    url(r'^checkcodeGIF/', checkcode.checkcodeGIF, name="checkcodeGIF"), 
-    url(r'^getcheckcode/', checkcode.getcheckcode, name="getcheckcode"),        
-    url(r'^myregister/', home.myregister, name="myregister"),    
-    url(r'^mylogin/', home.mylogin, name="mylogin"),
+#     url(r'^checkcodeGIF/', checkcode.checkcodeGIF, name="checkcodeGIF"), 
+#     url(r'^getcheckcode/', checkcode.getcheckcode, name="getcheckcode"),        
+#     url(r'^myregister/', home.myregister, name="myregister"),    
+#     url(r'^mylogin/', home.mylogin, name="mylogin"),
 
 ]
