@@ -27,6 +27,6 @@ urlpatterns = [
     url(r'^account/', include('account.urls')),
     
     url(r'^$', RedirectView.as_view(url='/home/index/', query_string=True)),
-    url(r'^apis/', include('home.apis.urls')),#定义第一级路由名apis
+    url(r'^apis/', include('home.apis.urls')),
     url(r'^home/', include('home.urls')),
 ]
