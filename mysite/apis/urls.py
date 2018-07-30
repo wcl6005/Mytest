@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.conf.urls import url, include
-import myuser
+from . import myuser
 
 urlpatterns = [
     url(r'^registerapi/', myuser.registerapi, name="registerapi"),   
