@@ -1,5 +1,5 @@
+# -*- coding: UTF-8 -*-
 #!/usr/bin/env bash
-
 pushd `dirname $0` > /dev/null
 BASE_DIR=`pwd -P`
 popd > /dev/null
