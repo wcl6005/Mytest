@@ -1,4 +1,4 @@
-# -*- coding: UTF-8 -*-
+# -*- coding: utf-8 -*-
 #!/usr/bin/env bash
 pushd `dirname $0` > /dev/null
 BASE_DIR=`pwd -P`
@@ -54,7 +54,7 @@ fi
 python "${BASE_DIR}/manage.py" "prepare"
 build_venv
 
-if [ "${OPT_ENV_FORCE}x" != "-kx" ];then
+if [ "${OPT_ENV_FORCE}x" == "-ix" ];then
     rebuild_db
 fi
 
