@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'account.apps.AccountConfig', #添加一个应用，创建account/apps.py文件
-    'home.apps.AccountConfig',  
+    'home.apps.AccountConfig',
+    'apis.apps.AccountConfig',  
     
 ]
 
