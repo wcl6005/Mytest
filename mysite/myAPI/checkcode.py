@@ -89,21 +89,7 @@ def gcheckcode(request):
     request.session['checkcode']=listchar
     return ''.join(listchar) 
      
-# http://localhost:9000/home/getcheckcode/
 def getcheckcode(request):
     g_checkcode = gcheckcode(request)
     path = request.GET.get('path')
     return  render(request, path, context=locals())
-
-############################################################################### 
-# def vueregister(request):
-#     g_checkcode = gcheckcode(request)#验证码送前台验证
-#     href = '/admin/auth/user/' #注册成功，重新定向
-#     path = 'vue/register.html' #html路径
-#     return  render(request, path , context=locals()) 
-
-
-# <a  href="/home/getcheckcode/?path={{path}}" >  <!--注册后台-->
-#     <img     src="/home/checkcodeGIF/"  alt="验证码图片" />
-#                             看不清？换一个
-# </a>

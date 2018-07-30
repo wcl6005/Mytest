@@ -19,7 +19,7 @@ def myregister(request):
     name = request.POST['username']
     isname = User.objects.filter(username = name)
     if isname: 
-        messages.info(request, name + '用户已经注册！')
+        messages.info(request, name + '  register！')
         return HttpResponseRedirect('#')   
     email = request.POST['email']
     password = request.POST['password']
@@ -41,5 +41,5 @@ def mylogin(request):
     if user: 
         auth_login(request, user)
         return  HttpResponseRedirect(href)
-    messages.info(request, u'登录失败！请输入一个正确的 用户名 和密码. 注意他们都是区分大小写的！')
+    messages.info(request, 'err user or password')
     return  render(request, 'home/mylogin.html', context=locals())
