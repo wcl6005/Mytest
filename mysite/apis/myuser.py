@@ -21,9 +21,18 @@ def registerapi(request):
     user = User.objects.create_superuser(name, email, password)
     user.save() 
     return  JsonResponse({})
-    return HttpResponse('ok1')
 
 
 #  http://localhost:9000/apis/loginapi/  
 def loginapi(request):
-    return HttpResponse('ok2')   
+    if request.method != 'POST':
+        mylist = list(User.objects.values())
+        return  JsonResponse(mylist,safe=False)      
+    name = request.POST['name']
+    password = request.POST['password']
+    user = authenticate(username=name, password=password) #django验证登录
+    if user:
+        auth_login(request, user)#django登录
+        return  JsonResponse({})      
+    msgdict = {'msg':'user authenticate err!'}
+    return JsonResponse(msgdict) 
