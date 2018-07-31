@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """mysite URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -18,14 +17,13 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.views.generic import RedirectView
-
-
+from account import views
 urlpatterns = [
+         
     url(r'^login/$', auth_views.LoginView.as_view(), name='login'),
     url(r'^logout/$', auth_views.LogoutView.as_view(), name='logout'),
     url(r'^admin/', admin.site.urls),
     url(r'^account/', include('account.urls')),
-    url(r'^$', RedirectView.as_view(url='/home/index/', query_string=True)),
+    url(r'^$', RedirectView.as_view(url='/account/index/', query_string=True)),
     url(r'^home/', include('home.urls')),
-    url(r'^apis/', include('apis.urls')),
 ]

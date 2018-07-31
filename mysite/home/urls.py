@@ -1,12 +1,8 @@
 # -*- coding: utf-8 -*-
 from django.conf.urls import url, include
-from django.views.generic import TemplateView, ListView, View
-from myAPI import checkcode
-
-class IndexView(TemplateView):
-    template_name = 'home/index.html'
+from . import home
 
 urlpatterns = [
-    url(r'^index/$', IndexView.as_view()), 
+    url(r'^test/', home.test, name="test"), 
 
 ]
