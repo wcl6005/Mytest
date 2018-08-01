@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals
 import os,sys
 from io import BytesIO as StringIO
 from django.shortcuts import render
@@ -13,11 +12,6 @@ _letter_cases = "abcdefghnpqrstuvxy".upper()
 _upper_cases = _letter_cases
 _numbers = ''.join(map(str, range(3, 8))) 
 init_chars = ''.join((_letter_cases, _upper_cases, _numbers))
-
-reload(sys)
-sys.setdefaultencoding('utf-8') #设置运行时编码为utf-8,解决由__future__中unicode_literals引起的错误
-
-
 
 
 def get_chars(chars=init_chars, length=4):     
@@ -82,7 +76,7 @@ def gcheckcode(request):
     request.session['checkcode'] = listchar
     return ''.join(listchar) 
 
-# http://localhost:9000/checkcodeGIF/
+# http://localhost:9000/home/checkcodeGIF/
 def checkcodeGIF(request):
     if not request.session.get('checkcode',''):
         request.session['checkcode'] = '1234'        
