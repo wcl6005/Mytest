@@ -7,6 +7,6 @@ urlpatterns = [
     url(r'^registerapi/', home.registerapi, name="registerapi"), 
     url(r'^loginapi/', home.loginapi, name="loginapi"), 
     url(r'^checkcodeGIF/', home.checkcodeGIF, name="checkcodeGIF"), # 
-    url(r'^getcheckcode/', home.getcheckcode, name="getcheckcode"), #        
+    #url(r'^getcheckcode/', home.getcheckcode, name="getcheckcode"), #        
 
 ]
