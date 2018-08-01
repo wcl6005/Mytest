@@ -4,8 +4,7 @@ from . import home
 
 import os,sys
 from io import BytesIO as StringIO
-# from django.shortcuts import render
-# 
+from django.shortcuts import render 
 # import random
 # from django.http.response import HttpResponseRedirect, HttpResponse
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
