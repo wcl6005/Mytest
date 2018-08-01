@@ -10,7 +10,7 @@ except ImportError:
     import StringIO
 import random
 from django.http.response import HttpResponseRedirect, HttpResponse
-from PIL import Image, ImageDraw, ImageFont, ImageFilter
+#from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 
 urlpatterns = [
