@@ -3,7 +3,7 @@ from django.conf.urls import url, include
 from . import home
 
 from django.views.generic import TemplateView, ListView, View
-from myAPI import checkcode
+from . import checkcode
 
  
 # 本级路由：/home/
