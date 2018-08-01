@@ -3,38 +3,13 @@ from __future__ import unicode_literals
 from django.contrib.auth import login as auth_login 
 from django.contrib.auth import authenticate, login 
 from django.shortcuts import render
-from django.http.response import HttpResponseRedirect, HttpResponse
+from django.http.response import HttpResponseRedirect, HttpResponse,\
+    StreamingHttpResponse
 
 from django.contrib.auth.models import User, Group
 from django.http import JsonResponse
 from django.contrib import messages
 
-import os
-from django.shortcuts import render
-try:
-    import cStringIO as StringIO
-except ImportError:
-    import StringIO
-#from checkcode import create_validate_code,gcheckcode
-
-#网页显示内存图片 http://localhost:9000/home/checkcodeGIF/
-def checkcodeGIF(request):
-    return  HttpResponse('ok')
-#     if not request.session.get('checkcode',''):
-#         request.session['checkcode'] = '1234'        
-#     img_type="GIF" #图像类型
-#     checkcode = create_validate_code(request)#获得图片+验证码
-#     mstream = StringIO.StringIO()  #内存文件对象。read, readline, readlines, write, writelines都是有的mstream.write("aaaa")
-#     checkcode[0].save(mstream, img_type) #图片保存在内存中
-#     codeImg = mstream.getvalue() #获得保存图片
-#     mstream.close()#关闭保存
-#     return  HttpResponse(codeImg, img_type) #网页显示内存图片
-
-# # http://localhost:9000/home/getcheckcode/
-# def getcheckcode(request):
-#     g_checkcode = gcheckcode(request)
-#     path = request.GET.get('path','base.html')
-#     return  render(request, path, context=locals())
 
 #注册API  http://localhost:9000/home/registerapi/ 
 def registerapi(request):
