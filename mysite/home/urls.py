@@ -2,14 +2,13 @@
 from django.conf.urls import url, include
 from . import home
 
-from __future__ import unicode_literals
 import os,sys
-from io import BytesIO as StringIO
-from django.shortcuts import render
-
-import random
-from django.http.response import HttpResponseRedirect, HttpResponse
-from PIL import Image, ImageDraw, ImageFont, ImageFilter
+# from io import BytesIO as StringIO
+# from django.shortcuts import render
+# 
+# import random
+# from django.http.response import HttpResponseRedirect, HttpResponse
+# from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 
 #from myAPI import checkcode
