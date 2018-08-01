@@ -1,15 +1,9 @@
 # -*- coding: utf-8 -*-
 from django.conf.urls import url, include
 from . import home
-
-from django.views.generic import TemplateView, ListView, View
 from . import checkcode
 
  
-# 本级路由：/home/
-class IndexView(TemplateView):
-    template_name = 'home/index.html'
-
 urlpatterns = [
     url(r'^test/', home.test, name="test"), 
     url(r'^registerapi/', home.registerapi, name="registerapi"), 
