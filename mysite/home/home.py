@@ -33,7 +33,7 @@ def checkcodeGIF(request):
 # http://localhost:9000/home/getcheckcode/
 def getcheckcode(request):
     g_checkcode = gcheckcode(request)
-    path = request.GET.get('path')
+    path = request.GET.get('path','base.html')
     return  render(request, path, context=locals())
 
 #注册API  http://localhost:9000/home/registerapi/ 
