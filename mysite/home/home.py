@@ -15,7 +15,7 @@ try:
     import cStringIO as StringIO
 except ImportError:
     import StringIO
-from checkcode import create_validate_code,gcheckcode
+#from checkcode import create_validate_code,gcheckcode
 
 #网页显示内存图片 http://localhost:9000/home/checkcodeGIF/
 def checkcodeGIF(request):
