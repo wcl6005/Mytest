@@ -2,15 +2,7 @@
 # 文件名： checkcode.py
 # 功能：内存显示图像验证码 模块  
 # 目录下一定要有__init__.py文件，否则不能被其它文件引用、不能沿路径读写文件。from ... 。
-import os
-from django.shortcuts import render
-try:
-    import cStringIO as StringIO
-except ImportError:
-    import StringIO
 import random
-from django.shortcuts import render_to_response
-from django.http import HttpResponse
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 FONT_TYPE = "static_common/home/fonts/DroidSans.ttf" #相关字体文件. 当前目录 ../mysite
@@ -84,26 +76,12 @@ def create_validate_code(request,size=(120, 30), mode="RGB",
     img = img.filter(ImageFilter.EDGE_ENHANCE_MORE) # 滤镜，边界加强（阈值更大）
     return img, strs
 
-#网页显示内存图片 http://localhost:9000/home/checkcodeGIF/
-def checkcodeGIF(request):
-    if not request.session.get('checkcode',''):
-        request.session['checkcode'] = '1234'        
-    img_type="GIF" #图像类型
-    checkcode = create_validate_code(request)#获得图片+验证码
-    mstream = StringIO.StringIO()  #内存文件对象。read, readline, readlines, write, writelines都是有的mstream.write("aaaa")
-    checkcode[0].save(mstream, img_type) #图片保存在内存中
-    codeImg = mstream.getvalue() #获得保存图片
-    mstream.close()#关闭保存
-    return  HttpResponse(codeImg, img_type) #网页显示内存图片
+
 
 def gcheckcode(request):
     listchar = get_chars() #生成字符串（列表形式）
     request.session['checkcode']=listchar
     return ''.join(listchar) #列表形式字符串转换成字符串
      
-# http://localhost:9000/home/getcheckcode/
-def getcheckcode(request):
-    g_checkcode = gcheckcode(request)
-    path = request.GET.get('path')
-    return  render(request, path, context=locals())
+
 
