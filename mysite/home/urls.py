@@ -8,7 +8,7 @@ from io import BytesIO as StringIO
 # 
 # import random
 # from django.http.response import HttpResponseRedirect, HttpResponse
-# from PIL import Image, ImageDraw, ImageFont, ImageFilter
+from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 
 #from myAPI import checkcode
