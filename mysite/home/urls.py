@@ -3,7 +3,7 @@ from django.conf.urls import url, include
 from . import home
 
 import os,sys
-# from io import BytesIO as StringIO
+from io import BytesIO as StringIO
 # from django.shortcuts import render
 # 
 # import random
