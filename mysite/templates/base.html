@@ -1,39 +1,229 @@
 <!DOCTYPE html>
-{% load i18n %}
-<html lang="zh-Hans">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="/favicon.ico">
+{% block html_attr %}
+<html lang="en">
+{% endblock %}
+    {% block html_head %}
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}{{ gt.layout.title }}{% endblock %}</title>
+        <link href="/static/home/images/favicon.ico" rel="stylesheet">
+        <link href="/static/home/css/uikit.min.css" rel="stylesheet">
 
-    <title>{% block title %}{% trans 'Gaoyu Media' %}{% endblock %}</title>
+        <script src="/static/home/js/jquery.min.js"></script>
+        <script src="/static/home/js/uikit.min.js"></script> 
+        <script src="/static/home/js/md5.js"></script>
+        <script src="/static/home/js/vue.min.js"></script>        
 
-    <!-- Bootstrap core CSS -->
-    <link href="/static/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="/static/home/js/abbyCommon.js"></script>
+        <script src="/static/home/js/abbyApp.js"></script>        
+        <script src="/static/home/js/angular.min.js"></script>
+        {% block scripts_begin %}
+        {% endblock %}         
 
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="/static/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    </head>
+    {% endblock %}
+{% block html_body %}   
+<body ng-app=''>
+<div ng-init="placeholder='{{placeholder}}'"></div>
+<div ng-init="search='{{search}}'"></div> 
+<div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
+        {% block header %}
+        <div class="uk-margin">
+		    <nav class="uk-navbar">
+		        <a class="uk-navbar-brand" href="/home/index/"><i class="uk-icon-home"></i> Home</a>
 
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="/static/assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="/static/assets/js/ie-emulation-modes-warning.js"></script>
+				<ul class="uk-navbar-nav"> 
+                	<li class="uk-parent uk-active " data-uk-dropdown>
+                        <a href="#"><i class="uk-icon-delicious"></i> js单元测试 </a>
+                        <div class="uk-dropdown uk-dropdown-navbar">
+                            <ul class="uk-nav uk-nav-navbar">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    {% block head %}{% endblock %}
-  </head>
+                                <li><a href="/vue/unittest/"> Vue单元测试 </a></li>
+                                <li><a href=""> -------------------------- </a></li>
+                        
+                            </ul>
+                        </div>
+                	</li>
+		        </ul>
+                <ul class="uk-navbar-nav"> 
+                    <li class="uk-parent uk-active " data-uk-dropdown>
+                        <a href="#"><i class="uk-icon-firefox"></i> 常用资料 </a>
+                        <div class="uk-dropdown uk-dropdown-navbar">
+                            <ul class="uk-nav uk-nav-navbar">
 
-  <body>
-	{% block body %}{% endblock %}
-	
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="/static/assets/js/ie10-viewport-bug-workaround.js"></script>
-  </body>
+                                <li><a href="http://python.usyiyi.cn/translate/django_182/index.html"> Django 1.8.2 中文文档 </a></li>
+                                <li><a href="http://python.usyiyi.cn/translate/django_182/ref/contrib/admin/index.html"> Django Admin 中文定制 </a></li>
+
+                                <li><a href="http://www.runoob.com/jsref/jsref-obj-regexp.html"> JS正则表达式 </a></li>
+                                <li><a href=""> -------------------------- </a></li>
+
+                                <li><a href="https://vuejs.org/v2/guide/computed.html"> 
+                                Vue API </a></li>
+                                <li><a href=""> -------------------------- </a></li>
+
+                                <li><a href="http://www.getuikit.net/docs/icon.html"> 
+                                UK图标 </a></li>
+                                <li><a href=""> -------------------------- </a></li>
+
+                                
+
+                                <li><a href="http://tools.jb51.net/code/js"> 
+                                在线代码工具 </a></li>
+                                <li><a href=""> -------------------------- </a></li>
+                                <li><a href="http://www.sioe.cn/yingyong/yanse-rgb-16/"> RGB颜色值转换成十六进制颜色码 </a></li>
+
+                        
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="uk-navbar-nav"> 
+                    <li class="uk-parent uk-active " data-uk-dropdown>
+                        <a href="#"><i class="uk-icon-file-text"></i> 模板 </a>
+                        <div class="uk-dropdown uk-dropdown-navbar">
+                            <ul class="uk-nav uk-nav-navbar">
+
+                                <li><a href="/test/css_border-radius/">  矩形、圆形、三角形、多边形、爱心、八卦 菱形等 </a></li>
+                                 <li><a href=""> -------------------------- </a></li>
+
+                                <li><a href="/test/temp/">  克隆网站前台的方法 </a></li>
+                                 <li><a href=""> -------------------------- </a></li>
+
+                                <li><a href="http://www.cssmoban.com/">  模板之家 </a></li>
+                                 <li><a href=""> -------------------------- </a></li>
+                                <li><a href="http://www.777moban.com/"> 777模板 </a></li>
+                                <li><a href=""> -------------------------- </a></li>
+                                <li><a href="/runtool/openfilehtml/"> HTML </a></li>
+                                <li><a href=""> -------------------------- </a></li>
+                                <li><a href="/runtool/openfilejs/"> JavaScript </a></li>
+                                <li><a href=""> -------------------------- </a></li>
+                                <li><a href="http://www.anhua0737.com/job"> 蜗牛门户 </a></li>
+                                <li><a href=""> -------------------------- </a></li>
+
+                                <li><a href="http://www.ypy.hk/h-col-251.html"> 微盟建站 </a></li>
+                                <li><a href=""> -------------------------- </a></li>
+                        
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+
+                <ul class="uk-navbar-nav"> 
+                    <li class="uk-parent uk-active " data-uk-dropdown>
+                        <a href="/runtool/Runhtml50/"><i class="uk-icon-wrench"></i> 在线工具 </a>
+                        <div class="uk-dropdown uk-dropdown-navbar">
+                            <ul class="uk-nav uk-nav-navbar">
+
+                               <li><a href="http://tool.chinaz.com/tools/jsformat.aspx"> HTMLCSS代码格式化工具</a></li>
+                               <li><a href=""> -------------------------- </a></li>
+                                <li><a href="/runtool/gettxt/?fname=blog/templates/runtool/testCodeRuntTme.html"> 测试代码运行时间 </a></li>
+                                 <li><a href=""> -------------------------- </a></li>
+                                <li><a href="http://www.runoob.com/try/try.php?filename=tryhtml_intro"> HTMLCSSJS在线运行工具 </a></li>
+                                <li><a href=""> -------------------------- </a></li>
+
+                                <li><a href="/runtool/Runhtml50/"> HTML50% </a></li>
+                                <li><a href=""> -------------------------- </a></li>
+                                <li><a href="/runtool/openfilehtml/"> HTML </a></li>
+                                <li><a href=""> -------------------------- </a></li>
+                                <li><a href="/runtool/openfilejs/"> JavaScript </a></li>
+                                <li><a href=""> -------------------------- </a></li>
+                                <li><a href="/runtool/openfilepy/"> PYTHON </a></li>
+                                <li><a href=""> -------------------------- </a></li>
+
+                                <li><a href="/test/get_safe/"> 获得转义字符 </a></li>
+                                <li><a href=""> -------------------------- </a></li>
+                        
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="uk-navbar-nav"> 
+                    <li class="uk-parent uk-active " data-uk-dropdown>
+                        <a href="#"><i class="uk-icon-star"></i> 应用分享 </a>
+                        <div class="uk-dropdown uk-dropdown-navbar">
+                            <ul class="uk-nav uk-nav-navbar">
+
+                                <li> <a  href="/payment/payment/"> 付款 </a></li>
+                                <li><a href=""> -------------------------- </a></li>
+                                <li> <a  href="/test/qrcode/https://www.baidu.com/"> 制作二维码 </a></li>
+                                <li><a href=""> -------------------------- </a></li>
+                                <li> <a  href="/account/billing/"> 高域传媒 </a></li>
+                                <li><a href=""> -------------------------- </a></li>
+                        
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+
+                
+
+		        <div class="uk-navbar-flip">
+		          <ul class="uk-navbar-nav">
+		          {% if user.username %}
+		            <li class="uk-parent" data-uk-dropdown>
+		                <a href="#0"><i class="uk-icon-user"></i> {{ user.username }}</a>
+		                <div class="uk-dropdown uk-dropdown-navbar">
+		                  <ul class="uk-nav uk-nav-navbar">
+		                    <li><a href="/logout"><i class="uk-icon-sign-out"></i> Logout</a></li>
+		                  </ul>
+		                </div>
+		            </li>
+		          {% else %}
+		            <li><a href="/home/mylogin/"><i class="uk-icon-sign-in"></i> Login</a></li>
+		            <li><a href="/home/myregister/"><i class="uk-icon-edit"></i> Register</a></li>
+		          {% endif %}
+		          </ul>
+		        </div>
+                {% verbatim %} 
+                <!--AngularJS 实现双向数据绑定-->
+                <div class="uk-navbar-content uk-navbar-flip">
+                    <div class="uk-form uk-margin-remove uk-display-inline-block">
+                         
+                        <input ng-model="q" id="q" style="width:200px;" placeholder="{{placeholder}}" > 
+                        <a class="uk-button uk-button-primary" href="{{search}}?q={{q}}"><i class="uk-icon-search"></i></i></a> 
+                    
+                    </div>  
+                </div> 
+                {% endverbatim %}
+
+		    </nav>
+		</div>
+        {% endblock %}
+
+    {% block content %}
+     
+    {% endblock %}
+     
+    {% if messages %} <!--messages消息 width:60px;-->
+        <div  style="height:60px;width:972px;color:#f00;font-size:16px; padding-left:4px;padding-top:2px;background-color:#fff; border:1px solid #ccc;word-wrap:break-word; overflow:auto;overflow-y:auto;margin-left:76px;">           
+                {% for message in messages %}
+                    <li>{{ message }}</li> 
+                {% endfor %}
+        </div>
+    {% endif %}
+
+    
+
+    {% block footer %}
+        <div class="uk-margin-large-top" style="background-color:#eee; border-top:1px solid #ccc;">
+		    <div class="uk-container uk-container-center uk-text-center">
+		        <div class="uk-panel uk-margin-top uk-margin-bottom">
+		            <p>
+		                {% for item in gt.layout.footer_ext_links %}
+		                <a target="_blank" href="{{ item.1 }}" class="uk-icon-button uk-icon-{{ item.0 }}"></a>
+		                {% endfor %}
+		            </p>
+		            <p>Powered by <a href="{{ gt.layout.powerby_link }}">{{ gt.layout.powerby_name }}</a>. Copyright &copy; 2016. [<a href="{{ gt.layout.manage_link }}" target="_blank">{{ gt.layout.manage_name }}</a>]</p>
+		            <p><a href="{{ gt.layout.rights_link }}" target="_blank">{{ gt.layout.rights_name }}</a>. All rights reserved.</p>
+		        </div>
+		    </div>
+		</div>
+    {% endblock %}
+   
+</div>
+</body>
+{% endblock %}
 </html>
+{% block scripts_end %}
+{% endblock %}
