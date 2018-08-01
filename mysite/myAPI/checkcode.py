@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
-import os
+from __future__ import unicode_literals
+import os,sys
+from io import BytesIO as StringIO
 from django.shortcuts import render
-try:
-    import cStringIO as StringIO
-except ImportError:
-    import StringIO
+
 import random
 from django.http.response import HttpResponseRedirect, HttpResponse
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
@@ -14,6 +13,13 @@ _letter_cases = "abcdefghnpqrstuvxy".upper()
 _upper_cases = _letter_cases
 _numbers = ''.join(map(str, range(3, 8))) 
 init_chars = ''.join((_letter_cases, _upper_cases, _numbers))
+
+reload(sys)
+sys.setdefaultencoding('utf-8') #设置运行时编码为utf-8,解决由__future__中unicode_literals引起的错误
+
+
+
+
 def get_chars(chars=init_chars, length=4):     
     return random.sample(chars, length)
 def create_validate_code(request,size=(120, 30), mode="RGB",
@@ -76,17 +82,18 @@ def gcheckcode(request):
     request.session['checkcode'] = listchar
     return ''.join(listchar) 
 
-# http://localhost:8000/checkcodeGIF/
+# http://localhost:9000/checkcodeGIF/
 def checkcodeGIF(request):
     if not request.session.get('checkcode',''):
         request.session['checkcode'] = '1234'        
     img_type="GIF" 
     checkcode = create_validate_code(request)
-    mstream = StringIO.StringIO()  
-    checkcode[0].save(mstream, img_type) 
-    codeImg = mstream.getvalue() 
-    mstream.close()
-    return  HttpResponse(codeImg, img_type)
+    mstream = StringIO()
+    checkcode[0].save(mstream, img_type) #图片保存在内存中
+    codeImg = mstream.getvalue() #获得保存图片
+    mstream.close()#关闭保存
+    return  HttpResponse(codeImg, img_type) #网页显示内存图片
+
     
 # http://localhost:8000/home/getcheckcode/
 def getcheckcode(request):
