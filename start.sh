@@ -12,12 +12,13 @@ function logging {
 }
 
 function build_venv {
+    pip3 install virtualenv
     if [ ! -d env ]; then
         virtualenv env
     fi
     . env/bin/activate
 
-    pip install -r requirements.txt
+    pip3 install -r requirements.txt
 }
 
 function rebuild_db {
@@ -54,7 +55,7 @@ fi
 python "${BASE_DIR}/manage.py" "prepare"
 build_venv
 
-if [ "${OPT_ENV_FORCE}x" != "-kx" ];then
+if [ "${OPT_ENV_FORCE}x" == "-kx" ];then
     rebuild_db
 fi
 

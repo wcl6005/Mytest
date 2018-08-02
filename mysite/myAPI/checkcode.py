@@ -39,8 +39,8 @@ def create_validate_code(request,size=(120, 30), mode="RGB",
     def create_points():
         chance = min(100, max(0, int(point_chance))) 
 
-        for w in xrange(width):
-            for h in xrange(height):
+        for w in range(width):
+            for h in range(height):
                 tmp = random.randint(0, 100)
                 if tmp > 100 - chance:
                     draw.point((w, h), fill=(0, 0, 0))
@@ -87,10 +87,11 @@ def checkcodeGIF(request):
     codeImg = mstream.getvalue() #获得保存图片
     mstream.close()#关闭保存
     return  HttpResponse(codeImg, img_type) #网页显示内存图片
-
     
-# http://localhost:8000/home/getcheckcode/
+# http://localhost:9000/home/getcheckcode/
 def getcheckcode(request):
     g_checkcode = gcheckcode(request)
-    path = request.GET.get('path','__base__.html')
+    path = request.GET.get('path','')
+    if not path:
+        return HttpResponseRedirect('/')        
     return  HttpResponseRedirect(path)
