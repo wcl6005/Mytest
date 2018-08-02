@@ -1,14 +1,13 @@
 # -*- coding: utf-8 -*-
 from django.conf.urls import url, include
-from . import home
 from myAPI import checkcode
+from . import home
 
-urlpatterns = [
-    url(r'^test/', home.test, name="test"), 
-    url(r'^registerapi/', home.registerapi, name="registerapi"), 
-    url(r'^loginapi/', home.loginapi, name="loginapi"), 
+urlpatterns = [ 
+   url(r'^index/', home.index, name="index"),
     url(r'^checkcodeGIF/', checkcode.checkcodeGIF, name="checkcodeGIF"),
     url(r'^getcheckcode/', checkcode.getcheckcode, name="getcheckcode"),
-
+    url(r'^myregister/', home.myregister, name="myregister"),    
+    url(r'^mylogin/', home.mylogin, name="mylogin"),
 
 ]

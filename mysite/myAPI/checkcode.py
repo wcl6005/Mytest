@@ -93,5 +93,5 @@ def getcheckcode(request):
     g_checkcode = gcheckcode(request)
     path = request.GET.get('path','')
     if not path:
-        return HttpResponseRedirect('/')        
+        return HttpResponseRedirect('/home/myregister/')        
     return  HttpResponseRedirect(path)

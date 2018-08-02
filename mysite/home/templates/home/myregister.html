@@ -90,7 +90,7 @@
         #qr-code-register .qr-code{
             height: 190px;
             width: 190px;
-            background: url('/static/home/images/qrcode.jpg'); //二维码 
+            background: url('/static/home/images/qrcode.jpg'); 
         margin: 0 auto;
         }
         #qr-code-register .title1{
@@ -134,7 +134,7 @@
         <div class="login-tab" data-widget="app/ms_v2/user/register.js#switchTab">
             <ul>
                 <li data-role="switch" data-action="normal" class="active"><a href="javascript:void(0);">账号注册</a></li>
-                <li data-role="switch" data-action="phone" class=""><a href="javascript:void(0);">手机快速注册</a></li>
+                
             </ul>
         </div>
         <div class="tab-con1 js-tab js-normal">
@@ -154,7 +154,7 @@
                 <form action="/home/myregister/"  method="post"  novalidate="novalidate">
 
                     {% csrf_token %}
-                    <!--input隐藏传值  style="display:non    q   -->
+                    <!--input隐藏传值   -->
                     <div >
                         <input value="{{q }}"   name="q"  type="text"  style="display:none" >
                     </div>
@@ -191,7 +191,6 @@
                         <span class="msg-box" id="tip_password2"></span>
                     </div>
 
-                    CheckCode=={{g_checkcode}}
                     <input   name="get_checkcode"  type="text"  style="display:none" value="{{g_checkcode}}" >
 
                     <div class="field checkcode clearfix" id="checkcode" data-widget="app/ms_v2/user/register.js#refleshRegImg">
@@ -224,65 +223,7 @@
             </div>
         </div>
 
-        <!--手机注册-->
-        <div class="tab-con2 js-tab js-phone" style="display:none">
-            <div class="error-box V5" id="reg_phone_error" style="display:none">
-                <span class="validatorMsg validatorError" id="reg_phone_error_content"></span>
-            </div>
-            <form action="" method="post" id="phone_register_form" novalidate="novalidate">
-                <div class="tab-cont" style="display:block;">
-                    <div class="field clearfix">
-                        <label class="field-tit" >手机号：</label>
-                        <input type="text" class="tab-input-text" placeholder="请填写您的手机号" name="reg_phone" value="">
-                        &nbsp;<span id="tip_phone" class="msg-box"></span>
-                    </div>
-                    <div class="field checkcode clearfix"  data-widget="app/ms_v2/user/register.js#refleshPhoneRegImg">
-                        <label class="field-tit" >验证码：</label>
-                        <input value="" name="checkphonecode" type="text" maxlength="4" class="input-text" id="checkcode_phone_input">
-                        <label class="fl">
-                            <img id="img_phone_checkcode" data-role="reflesh" align="absmiddle" src="/static/blog/img/ajax.php">
-                        </label>
-                        <a class="field-tips" data-role="reflesh" href="javascript:void(0);">看不清？换一个</a>
-                        <span id="tip_phone_checkcode" style="width:136px"></span>
-                        <p class="getcode clearfix">
-                            <input type="button" gjalog="/user/register/send_phone_auth_code@atype=click" class="time-buttom" value="获取手机确认码" name="sendCodeBtn" data-widget="app/ms_v2/user/register.js#sendPhoneCode" autocomplete="off">
-                            <span class="msg-box js-msg-box"><span class="validatorMsg" id="tip_is_get_code"></span></span>
-                        </p>
-                    </div>
-                    <div class="field clearfix">
-                        <label class="field-tit" >确认码：</label>
-                        <input type="text" class="tab-input-text" name="phone_code" maxlength="6" value=""><span id="tip_phone_code"></span>
-                        <input type="hidden" value="http://lz.ganji.com/zhaopin/" name="next">
-                        <input type="hidden" value="0" name="second">
-                    </div>
-                    <div class="field clearfix">
-                        <label class="field-tit" >密码：</label>
-                        <input value="" name="phone_password" type="password" class="tab-input-text" maxlength="16" data-widget="app/ms_v2/user/register.js#levelValid" autocomplete="off">
-                        <span class="msg-box" id="tip_phone_password"></span>
-                        <div class="pw-strength" id="level111">
-                            <div class="pw-bar"></div>
-                            <div class="pw-bar-on"></div>
-
-                        </div>
-                    </div>
-                    <div class="field clearfix">
-                        <label class="field-tit" >确认密码：</label>
-                        <input value="" name="phone_password2" type="password" maxlength="16" class="tab-input-text" autocomplete="off">
-                        <span class="msg-box" id="tip_phone_password2"></span>
-                    </div>
-                    <div class="gj-agreement clearfix">
-                        <div class="gj-agreement-cont"><input value="14" checked="" name="phone_affirm" type="checkbox" class="chk-vm" autocomplete="off">
-                            <label >我接受服务条款<a target="_blank" href="http://www.ganji.com/misc/abouts/index.php?act=termofservice">&lt;&lt;赶集服务条款&gt;&gt;</a></label>
-                            <span class="msg-box" id="tip_phone_affirm"></span>
-                        </div>
-                    </div>
-                    <div class="submit-box" data-widget="app/ms_v2/user/register.js#phoneRegisterIndex">
-                        <input class="btn-org js-submit-btn" type="submit" value="立即注册" data-role="reg_submit">
-                        <span class="msg-submit " style="display: none;">正在提交···</span>
-                    </div>
-                </div>
-            </form>
-        </div>
+        
 
     </div>
 </div>
