@@ -11,7 +11,11 @@
 <div class="container">
 	<div class="row clearfix">
 	{% if url %}				
-        <iframe style="width: 1200px; height: 728px;" src={{lineroad}}{{url}} > </iframe>
+        <iframe style="width: 1200px; height: 728px;" src={{lineroad}}{{url}} > </iframe>    
+    {% else %} 
+    <h3>1、复制视频网址，开始播放...<br>
+		2、不能播放时，先切换播放器线路；若仍不能播放，再选择复选框线路 OK!  
+    </h3>
     {% endif %}    
         <div class="col-md-12">             	
             <form class="form-horizontal" role="form" action="#" method="post">
