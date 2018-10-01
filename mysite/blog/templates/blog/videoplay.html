@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"> 
+    <title>Bootstrap 实例 - 代码</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">  
+    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+	<div class="row clearfix">
+	{% if url %}				
+        <iframe style="width: 1200px; height: 728px;" src={{lineroad}}{{url}} > </iframe>
+    {% endif %}    
+        <div class="col-md-12">             	
+            <form class="form-horizontal" role="form" action="#" method="post">
+				{% csrf_token %}
+				<div class="col-md-1">
+					<a class="btn btn-success" href="/blog/home/"> HOME </a>
+				</div>
+
+				<div class="col-md-2">
+				<div class="input-group">
+				
+                <span class="input-group-addon label-info">选择线路</span>
+                <select name="lineroad" class="form-control" required>
+                    {% for i in line_list %}
+                    <option value="{{ i }}">线路{{ forloop.counter }}</option>
+                    {% endfor %}
+                </select>
+            	</div>
+            	</div>
+
+				<div class="col-md-6">
+            		<div class="input-group">                      	
+                		<span class="input-group-addon label-info">观看网址</span> 
+                		<input class="form-control" name="url" value="{{url}}"  type="text" required/>
+					</div>
+                </div>				
+				<div class="col-md-2">
+					<div class="form-group ">
+						<div class="col-sm-offset-2 col-sm-10">
+						 	<button type="submit" class="btn btn-success">观看</button>
+						</div>
+					</div>
+				
+				</div>
+			</form>
+			
+
+		</div>
+		
+        
+
+		    
+       
+       
+
+
+
+	</div>
+</div>
+
+</body>
+</html>

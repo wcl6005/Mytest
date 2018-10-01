@@ -17,7 +17,7 @@ function build_venv {
     fi
     . env/bin/activate
 
-    pip install -r requirements.txt
+    pip3 install -r requirements.txt
 }
 
 function rebuild_db {
@@ -27,8 +27,8 @@ function rebuild_db {
 	ls "${BASE_DIR}/mysite/account/migrations/"
 	logging "migrate"
 	python "${BASE_DIR}/mysite/manage.py" "migrate"
-	logging "makemigrations" "account"
-	python "${BASE_DIR}/mysite/manage.py" "makemigrations" "account"
+	logging "makemigrations" "blog"
+	python "${BASE_DIR}/mysite/manage.py" "makemigrations" "blog"
 	logging "migrate"
 	python "${BASE_DIR}/mysite/manage.py" "migrate"
 	logging "initdb.py"
