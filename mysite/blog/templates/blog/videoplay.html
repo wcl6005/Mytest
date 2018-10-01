@@ -11,8 +11,12 @@
 <div class="container">
 	<div class="row clearfix">
 	{% if url %}				
-        <iframe style="width: 1200px; height: 728px;" src={{lineroad}}{{url}} > </iframe>
-    {% endif %}    
+        <iframe style="width: 1200px; height: 728px;" src={{lineroad}}{{url}} > </iframe>   
+    {% else %}
+    <h3>1、复制视频网址，开始播放...<br>
+	2、播放效果不理想，切换线路，OK! </h3>
+    {% endif %}
+
         <div class="col-md-12">             	
             <form class="form-horizontal" role="form" action="#" method="post">
 				{% csrf_token %}
@@ -51,15 +55,115 @@
 
 		</div>
 		
-        
-
-		    
-       
-       
-
-
 
 	</div>
+
+<div class="tips">
+            <div id="clear" class="height20"></div>
+			<strong>现已支持以下网站视频播放：</strong>
+
+    <div class="logos_lists">
+           
+          <dl>
+                	<dt><a href="http://www.iqiyi.com/" target="_blank"><img src="./在线解析_files/aqylogo.png" data-bd-imgshare-binded="1"></a></dt>
+                    <dd>爱奇艺视频</dd>
+              </dl>
+              
+                 <dl>
+                	<dt><a href="http://www.youku.com/" target="_blank"><img src="./在线解析_files/youkulogo.png" data-bd-imgshare-binded="1"></a></dt>
+                    <dd>优酷视频</dd>
+                </dl>
+                
+                <dl>
+                	<dt><a href="http://www.le.com/" target="_blank"><img src="./在线解析_files/letvlogo.png" data-bd-imgshare-binded="1"></a></dt>
+                    <dd>乐视TV视频</dd>
+                </dl>
+				<dl>
+                	<dt><a href="http://v.qq.com/" target="_blank"><img src="./在线解析_files/qqlogo.png" data-bd-imgshare-binded="1"></a></dt>
+                    <dd>腾讯视频</dd>
+                </dl>
+             
+                <dl>
+                	<dt><a href="http://www.tudou.com/" target="_blank"><img src="./在线解析_files/tudoulogo.png" data-bd-imgshare-binded="1"></a></dt>
+                    <dd>土豆视频</dd>
+                </dl>
+                
+                  <dl>
+                	<dt><a href="http://tv.sohu.com/" target="_blank"><img src="./在线解析_files/sohulogo.png" data-bd-imgshare-binded="1"></a></dt>
+                    <dd>搜狐视频</dd>
+                </dl>
+                
+                <dl>
+                	<dt><a href="http://www.56.com/" target="_blank"><img src="./在线解析_files/56logo.png" data-bd-imgshare-binded="1"></a></dt>
+                    <dd>56视频</dd>
+                </dl>
+                <dl>
+                	<dt><a href="http://www.ku6.com/" target="_blank"><img src="./在线解析_files/ku6logo.png" data-bd-imgshare-binded="1"></a></dt>
+                    <dd>酷6视频</dd>
+                </dl>
+                <dl>
+                	<dt><a href="http://www.wasu.cn/" target="_blank"><img src="./在线解析_files/wasulogo.png" data-bd-imgshare-binded="1"></a></dt>
+                    <dd>WASU华数视频</dd>
+                </dl>
+                <dl>
+                	<dt><a href="http://www.yinyuetai.com/" target="_blank"><img src="./在线解析_files/yinyuetailogo.png" data-bd-imgshare-binded="1"></a></dt>
+                    <dd>音悦台MV</dd>
+                </dl>
+                <dl>
+                	<dt><a href="http://www.mgtv.com/" target="_blank"><img src="./在线解析_files/hunantvlogo.png" data-bd-imgshare-binded="1"></a></dt>
+                    <dd>芒果TV视频</dd>
+                </dl>
+                <dl>
+                	<dt><a href="http://video.sina.com.cn/" target="_blank"><img src="./在线解析_files/sinalogo.png" data-bd-imgshare-binded="1"></a></dt>
+                    <dd>新浪视频</dd>
+                </dl>
+                <dl>
+                	<dt><a href="http://v.163.com/" target="_blank"><img src="./在线解析_files/163logo.png" data-bd-imgshare-binded="1"></a></dt>
+                    <dd>网易视频</dd>
+                </dl>
+              
+				<dl>
+                	<dt><img src="./在线解析_files/6logo.png" data-bd-imgshare-binded="1"></dt>
+                    <dd>6间房视频</dd>
+                </dl>
+                <dl>
+                	<dt><img src="./在线解析_files/kugoulogo.png" data-bd-imgshare-binded="1"></dt>
+                    <dd>酷狗MV视频</dd>
+                </dl>
+                <dl>
+                	<dt><img src="./在线解析_files/baomihualogo.png" data-bd-imgshare-binded="1"></dt>
+                    <dd>爆米花视频</dd>
+                </dl>
+                <dl>
+                	<dt><img src="./在线解析_files/ifenglogo.png" data-bd-imgshare-binded="1"></dt>
+                    <dd>凤凰视频</dd>
+                </dl>
+                <dl>
+                	<dt><img src="./在线解析_files/kankannewslogo.png" data-bd-imgshare-binded="1"></dt>
+                    <dd>看看新闻网视频</dd>
+                </dl>
+                <dl>
+                	<dt><img src="./在线解析_files/mtimelogo.png" data-bd-imgshare-binded="1"></dt>
+                    <dd>时光网视频</dd>
+                </dl>
+                <dl>
+                	<dt><img src="./在线解析_files/kuwologo.png" data-bd-imgshare-binded="1"></dt>
+                    <dd>酷我音乐MV视频</dd>
+                </dl>
+                <dl>
+                	<dt><img src="./在线解析_files/1905logo.png" data-bd-imgshare-binded="1"></dt>
+                    <dd>1905电影网视频</dd>
+                </dl>
+				<dl>
+                	<dt><img src="./在线解析_files/tangdoulogo.png" data-bd-imgshare-binded="1"></dt>
+                    <dd>糖豆视频</dd>
+                </dl>
+                <dl>
+                	<dt><img src="./在线解析_files/cntvlogo.png" data-bd-imgshare-binded="1"></dt>
+                    <dd>央视网</dd>
+                </dl>
+
+</div>	
 </div>
 
 </body>
