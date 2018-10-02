@@ -23,5 +23,5 @@ urlpatterns = [
     url(r'^logout/$', auth_views.LogoutView.as_view(), name='logout'),
     url(r'^admin/', admin.site.urls),
     url(r'^blog/', include('blog.urls')),
-    url(r'^$', RedirectView.as_view(url='/blog/home/', query_string=True)),
+    url(r'^$', RedirectView.as_view(url='/blog/videoplay/', query_string=True)),
 ]
