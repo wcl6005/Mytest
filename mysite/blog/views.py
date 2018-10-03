@@ -8,6 +8,8 @@ def videoplay(request):
     url = ''
     line_list = video_url_list
     if request.method != 'POST':        
+        l = 1
+        lineroad = line_list[0]
         return render(request, 'blog/videoplay.html', context=locals()) 
     cleanData = request.POST.dict()
     url = cleanData.get('url','').strip()
