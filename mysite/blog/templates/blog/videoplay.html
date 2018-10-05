@@ -13,15 +13,15 @@
 <body >
 <div class="container">
 	<div class="row clearfix">
-	{% if url %}				
-        <iframe style="width: 1200px; height: 728px;" src={{lineroad}}{{url}} > </iframe>    
-    {% else %} <br>
-    <div style="font-size:36px;color:#3ACC3A"> 无广告播放 开始啦 . . .</div><br>
+	   {% if url %}				
+            <iframe style="width: 1200px; height: 728px;" src={{lineroad}}{{url}} > </iframe>    
+        {% else %} <br>
+            <div style="font-size:36px;color:#3ACC3A"> 无广告播放 开始啦 . . .</div><br>
 
-    <div style="font-size:18px;"> 1、复制视频网址到下框，点击观看 OK!<br>
-		2、不能播放时，先切换播放器线路；若仍不能播放，再选择复选框线路 OK!    
-    </div><br> 
-    {% endif %}    
+            <div style="font-size:18px;"> 1、复制视频网址到观看网址，点击观看；
+		      2、不能播放时，先切换播放器线路；若仍不能播放，再选择复选框线路 OK!；3、为了保证播放效果，建议用Firefox、Google Chrome浏览器观看。4、手机观看时，点击广告左上方，关掉广告。5、一键手机观看VIP电影电视剧。    
+            </div><br> 
+        {% endif %}    
         <div class="col-md-12">             	
             <form class="form-horizontal" role="form" action="#" method="post">
 				{% csrf_token %}
@@ -55,11 +55,18 @@
 				</div>
 			</form>
 			
+            <div class="col-md-2">
+                    <div class="form-group ">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <a href="/blog/vipplay/" class="btn btn-success btn-lg">手机观看VIP视频</a>
+                        </div>
+                    </div>
+                
+            </div>
 
-		</div>
-	
+        </div>
 
-	</div>
+    </div>
 
 
  <div class="tips">

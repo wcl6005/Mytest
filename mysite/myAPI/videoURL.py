@@ -5,14 +5,14 @@ headers = {
     'User-Agent':'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 '
     '(KHTML, like Gecko) Chrome/60.0.3112.101 Safari/537.36'
 }
-video_url_list = ["http://www.wmxz.wang/video.php?url=",
-        "https://www.jqaaa.com/jx.php?url=", #0
-        "https://5.5252e.com/jx/b.php?url=",
-        "http://yun.mt2t.com/yun?url=",                   
-        "http://api.bbbbbb.me/yunjx/?url=",        
-        "http://000o.cc/jx/ty.php?url=",
-        "http://api.baiyug.cn/vip/index.php?url=", #6 le电视剧、爱奇艺
-        "http://yun.baiyug.cn/vip/?url=",
+video_url_list = ["http://www.wmxz.wang/video.php?url=", #1
+        "https://www.jqaaa.com/jx.php?url=", #2播放器上三条线路，不能全屏  支持爱奇艺
+        "https://5.5252e.com/jx/b.php?url=", #3播放器上无线路，不能全屏  支持爱奇艺
+        "http://yun.mt2t.com/yun?url=",    #4播放器上无线路，不能全屏  支持爱奇艺               
+        "http://api.bbbbbb.me/yunjx/?url=", #5播放器上无线路，个别支持全屏  支持爱奇艺         
+        "http://000o.cc/jx/ty.php?url=", #6播放器上无线路，个别支持全屏  支持爱奇艺 
+        "http://api.baiyug.cn/vip/index.php?url=", #7百域学院 播放器上无线路，不能全屏  支持爱奇艺 le电视剧
+        "http://yun.baiyug.cn/vip/?url=",#8百域学院 播放器上无线路，不能全屏  支持爱奇艺 le电视剧
 ];
 
 def parseUrl(url):
