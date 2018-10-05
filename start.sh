@@ -20,6 +20,7 @@ function build_venv {
     pip3 install -r requirements.txt
 }
 
+
 function rebuild_db {
 	logging "Clean"
 	rm -rf "${BASE_DIR}/mysite/db.sqlite3"
@@ -50,11 +51,11 @@ if [ "${OPT_ENV_FORCE}x" == "-fx" ];then
     python "${BASE_DIR}/manage.py" "clean"
 fi
 
-#python "${BASE_DIR}/manage.py" "prepare"
+python "${BASE_DIR}/manage.py" "prepare"
 build_venv
 
-if [ "${OPT_ENV_FORCE}x" != "-kx" ];then
+if [ "${OPT_ENV_FORCE}x" == "-ix" ];then
     rebuild_db
 fi
-
+cp ${BASE_DIR}/mysite/db.sqlite3 ${BASE_DIR}/mysite/demo.sqlite3
 launch_webapp
