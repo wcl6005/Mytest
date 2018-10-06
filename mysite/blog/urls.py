@@ -10,5 +10,5 @@ class IndexView(TemplateView):
 urlpatterns = [
     url(r'^home/$', IndexView.as_view(template_name='blog/base.html'), name="home"),
     url(r'^videoplay/$', views.videoplay, name="videoplay"),
-    url(r'^vipplay/$', views.vipplay, name="vipplay"),
+    url(r'^vipplay/(?P<page>\d*)?$', views.vipplay, name="vipplay"),
 ]
