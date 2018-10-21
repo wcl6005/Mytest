@@ -29,8 +29,7 @@ def vipplay(request, page):
         name = cleanData.get('name','').strip()
         tvname = cleanData.get('tvname','').strip()
         if '央视网' in tvname:
-            lineroad = video_url_list[4] #线路5
-        
+            lineroad = video_url_list[4] #线路5       
         elif '土豆' in tvname  or '56我乐' in tvname or 'KU6.com' in tvname\
           or '网易视频' in tvname  or '新浪视频' in tvname  or '6.CN' in tvname\
           or '酷狗音乐' in tvname or '爆米花网' in tvname or '凤凰视频' in tvname\
@@ -39,11 +38,9 @@ def vipplay(request, page):
         elif '华数TV' in tvname or '1905' in tvname:
             lineroad = video_url_list[1] #线路2
         elif '音悦Tai' in tvname or '糖豆' in tvname:
-            lineroad = video_url_list[7] #线路8
-        
+            lineroad = video_url_list[7] #线路8        
         else:    
             lineroad = video_url_list[0] #线路1 
-
     videos = Video.objects.values().order_by('-date', '-id') 
     cleanData = request.GET.dict()
     queryString = '?'+'&'.join(['%s=%s' % (k,v) for k,v in cleanData.items()]) 
