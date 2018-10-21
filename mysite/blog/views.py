@@ -28,7 +28,7 @@ def vipplay(request, page):
         url = cleanData.get('url','').strip()
         name = cleanData.get('name','').strip()
         tvname = cleanData.get('tvname','').strip()
-        if '爱奇艺' in tvname or '央视网' in tvname:
+        if '央视网' in tvname:
             lineroad = video_url_list[4] #线路5
         
         elif '土豆' in tvname  or '56我乐' in tvname or 'KU6.com' in tvname\
@@ -44,7 +44,7 @@ def vipplay(request, page):
         else:    
             lineroad = video_url_list[0] #线路1 
 
-    videos = Video.objects.values()
+    videos = Video.objects.values().order_by('-date', '-id') 
     cleanData = request.GET.dict()
     queryString = '?'+'&'.join(['%s=%s' % (k,v) for k,v in cleanData.items()]) 
     videos, pageList, num_pages, page = djangoPage(videos,page,PAGE_NUM)  #调用分页函数       
