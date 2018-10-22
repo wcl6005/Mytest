@@ -13,10 +13,12 @@ def videoplay(request):
     if request.method != 'POST':        
         l = 1
         lineroad = line_list[0]
+        
         return render(request, 'blog/videoplay.html', context=locals()) 
     cleanData = request.POST.dict()
     url = cleanData.get('url','').strip()
     lineroad = cleanData.get('lineroad','').strip()
+    name = cleanData.get('name','').strip()
     l = line_list.index(lineroad) + 1
     return render(request, 'blog/videoplay.html', context=locals())
 
@@ -41,6 +43,7 @@ def vipplay(request, page):
             lineroad = video_url_list[7] #线路8        
         else:    
             lineroad = video_url_list[0] #线路1 
+    line_list = video_url_list
     videos = Video.objects.values().order_by('-date', '-id') 
     cleanData = request.GET.dict()
     queryString = '?'+'&'.join(['%s=%s' % (k,v) for k,v in cleanData.items()]) 

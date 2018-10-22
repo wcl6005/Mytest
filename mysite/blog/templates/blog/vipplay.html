@@ -14,24 +14,53 @@
 <div class="container">
     <a href="/blog/videoplay/"  style="color:#f00;float: left;"> 返回</a>
     {% if url %}
-        <li style="color:#3ACC3A;">正在播放:{{name}}</li>
-        <div class="row clearfix">
-               
-            <iframe style="width: 1024px; height: 728px;" src={{lineroad}}{{url}} > </iframe>    
+    <li style="color:#3ACC3A;">正在播放:{{name}}</li>
+    <div class="row clearfix">
+        <iframe style="width: 1024px; height: 628px;" src={{lineroad}}{{url}} > </iframe>    
+    </div>
 
-        </div>
+   <div class="row clearfix">
+    <form class="form-horizontal" role="form" action="/blog/videoplay/" method="post">
+                {% csrf_token %}
+
+                 <input name="url" value="{{url}}"  type="text"  style="display:none"/> 
+                <div class="col-md-2">
+                    <div class="input-group">
+                        <input type="text" name="name" value="{{name}}"  style="display:none">
+                
+                        <span class="input-group-addon label-info" style="font-size:20px;">选择线路</span>
+                        <select name="lineroad" class="form-control" style="height:40px; width: 120px; font-size:20px;" required>
+                        {% for i in line_list %}
+                            <option   value="{{ i }}">线路{{ forloop.counter }}</option>
+                        {% endfor %}
+                            <option value="{{lineroad}}" selected="selected">线路{{l}}</option>
+                        </select>
+                   </div>
+                </div>
+                <div class="col-md-1"></div>
+                                
+                <div class="col-md-2">
+                    <div class="form-group ">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-success btn-lg">切换线路观看</button>
+                        </div>
+                    </div>
+                
+                </div>
+
+               
+    </form>
+    </div>
     {% endif %}
 
+    <span>{% include 'blog/djangopage.html' %}</span> <!--分页--> 
+   
     <div class="tips">
+
         <div id="clear" class="height20"></div>
-	    <strong>一键手机观看VIP视频：</strong>
-
-        
-        <span>{% include 'blog/djangopage.html' %}</span>  <!--分页-->
-
+	         
         <div class="logos_lists">          
-
-       
+              
          {% for video in videos %}      
             <dl><dt>
             <form action="#" method="post" id="{{video.name}}">
@@ -44,21 +73,14 @@
             </dt></dl>
         
         {% endfor %} 
-         
-
-
-         
-
-
-              
-                
-            <div id="counter"></div>
+                   
+        <div id="counter"></div>
 
             
-        </div>
-    </div>	
+    </div>
+</div>	
 
-</div>
+
 
 
 
