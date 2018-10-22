@@ -2,7 +2,7 @@ gevent
 gunicorn
 markdown2
 pymysql
-django==1.11.5
+django==2.0
 djangorestframework
 markdown 
 django-filter
@@ -10,17 +10,5 @@ monthdelta
 Pillow
 xlrd
 xlsxwriter
--i https://pypi.tuna.tsinghua.edu.cn/simple pytest-runner
--i https://pypi.tuna.tsinghua.edu.cn/simple javascripthon
 requests
 lxml
-pyecharts 
-pyecharts_snapshot
-psutil
-pandas
-matplotlib
-mpl_finance
-tushare
-bs4
-beautifulsoup4
-request
