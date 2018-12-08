@@ -23,8 +23,8 @@ function build_venv {
 
 function del_db {
     logging "Clean"
-    rm -rf "${BASE_DIR}/db.sqlite3"
-    rm -rf "${BASE_DIR}/mysite/blog/migrations/0*"
+    rm -rf "${BASE_DIR}/mysite/db.sqlite3"
+    rm -rf "${BASE_DIR}/mysite/blog/migrations/0001_initial.py"
     ls "${BASE_DIR}/mysite/blog/migrations/"
 }
 function creator_db {
