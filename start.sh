@@ -23,15 +23,14 @@ function build_venv {
 
 function del_db {
     logging "Clean"
-    rm -rf "${BASE_DIR}/mysite/db.sqlite3"
-    rm -rf "${BASE_DIR}/mysite/blog/migrations/0001_initial.py"
-    ls "${BASE_DIR}/mysite/blog/migrations/"
+    rm "-rf" "${BASE_DIR}/mysite/db.sqlite3"
 }
 function creator_db {
 	logging "migrate"
 	python "${BASE_DIR}/mysite/manage.py" "migrate"
-	logging "makemigrations" "blog"
-	python "${BASE_DIR}/mysite/manage.py" "makemigrations" "blog"
+
+	logging "makemigrations" "home"
+	python "${BASE_DIR}/mysite/manage.py" "makemigrations" "home"
 	logging "migrate"
 	python "${BASE_DIR}/mysite/manage.py" "migrate"
 }

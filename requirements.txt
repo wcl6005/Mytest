@@ -1,8 +1,14 @@
 gevent
 gunicorn
-fabric
 markdown2
 pymysql
-django==2.1
+django==1.11.5
 djangorestframework
 markdown 
+django-filter
+monthdelta
+Pillow
+xlrd
+xlsxwriter
+djangorestframework
+markdown
