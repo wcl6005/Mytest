@@ -10,56 +10,73 @@ popd > /dev/null
 function logging {
     echo "[INFO] $*"
 }
+
 function build_venv {
     if [ ! -d env ]; then
         virtualenv env
     fi
     . env/bin/activate
-    pip3 install -r requirements.txt
 
+    pip3 install -r requirements.txt
+}
+
+
+function del_db {
+    logging "Clean"
+    rm -rf "${BASE_DIR}/db.sqlite3"
+    rm -rf "${BASE_DIR}/mysite/blog/migrations/0*"
+    ls "${BASE_DIR}/mysite/blog/migrations/"
 }
 function creator_db {
-    logging "makemigrations"
-	python3 "${BASE_DIR}/mysite/manage.py" "makemigrations"
-
 	logging "migrate"
-	python3 "${BASE_DIR}/mysite/manage.py" "migrate"
-
+	python "${BASE_DIR}/mysite/manage.py" "migrate"
+	logging "makemigrations" "blog"
+	python "${BASE_DIR}/mysite/manage.py" "makemigrations" "blog"
+	logging "migrate"
+	python "${BASE_DIR}/mysite/manage.py" "migrate"
 }
+
 function write_data_db {
 	logging "initdb.py"
-	python3 "${BASE_DIR}/mysite/initdb.py"
+	python "${BASE_DIR}/mysite/initdb.py"
 }
-
 
 function launch_webapp {
-    python3 "${BASE_DIR}/mysite/manage.py" "runserver" "8000"
+    cd ${BASE_DIR}/mysite
+    python "manage.py" "runserver" "8000"
 }
+
 #############
 # Main
 #############
 cd ${BASE_DIR}
 OPT_ENV_FORCE=$1
 
+
+# python "${BASE_DIR}/manage.py" "clean"
+# python "${BASE_DIR}/manage.py" "prepare"
 build_venv
 
-#创建数据库表，适合添加数据库后操作，能重复操作，不会破坏数据。
+#放心操作!!! 创建数据库表，适合添加数据库后操作，能重复操作，不会破坏数据。
 if [ "${OPT_ENV_FORCE}x" == "-cx" ];then    
     creator_db
 fi
-# 创建数据表、创建超级用户，破坏数据?!!!(2018.01.21)。
+# 创建数据表、创建超级用户，不会破坏数据。一般情况不用操作，已经在write_data_db中实现此功能了。
 if [ "${OPT_ENV_FORCE}x" == "-cax" ];then    
     creator_db
-    python3 "${BASE_DIR}/mysite/manage.py" "createsuperuser" #创建超级用户
+    python "${BASE_DIR}/manage.py" "createsuperuser" 
 fi
 
 # 初始化数据库。创建数据表,删除数据后再加载数据。谨慎操作！！！
 if [ "${OPT_ENV_FORCE}x" == "-ix" ];then    
-    logging "${BASE_DIR}/mysite/db.sqlite3"
-    rm -rf "${BASE_DIR}/mysite/db.sqlite3"
+    del_db
     creator_db
     write_data_db
 fi
 
+#删除数据库表，数据不可恢复，谨慎操作！！！
+if [ "${OPT_ENV_FORCE}x" == "-dx" ];then
+	del_db
+fi
 cp ${BASE_DIR}/mysite/db.sqlite3 ${BASE_DIR}/mysite/demo.sqlite3
 launch_webapp
