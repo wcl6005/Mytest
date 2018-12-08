@@ -2,7 +2,7 @@ gevent
 gunicorn
 markdown2
 pymysql
-django==1.11.5
+django==2.1
 djangorestframework
 markdown 
 django-filter
@@ -10,5 +10,5 @@ monthdelta
 Pillow
 xlrd
 xlsxwriter
-djangorestframework
-markdown
+requests
+lxml

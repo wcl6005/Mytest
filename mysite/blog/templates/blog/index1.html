@@ -1,0 +1,43 @@
+{% extends 'blog/__base__.html' %}
+{% block content %}
+ 
+
+<div class="container">
+    <div class="myrow clearfix">
+        <div class="col-md-12 column"> 
+            <div class="col-md-2">
+                <div class="myrow mycol">
+                    <!--左边菜单模块-->
+                    {% include 'blog/left-menu.html' %}               
+                </div>
+            </div> 
+
+            <div class="col-md-10 mymiddle-column-home">
+                <div class="mycodelist">                       
+                    <h2> HTML / CSS / JavaScript/ Python / Django </h2> 
+                    <div>     
+                        <a class="myitem-top" href="/blog/index/"><h4>【 Python / Django 】</h4>
+                        <strong>按钮效果，功能全面.</strong></a>     
+                    </div>                
+                    <div>     
+                        <a class="myitem-top" href="#"><h4>【 HTML 】</h4>
+                        <strong>按钮效果，功能全面.</strong></a>     
+                    </div>                
+                    <div>     
+                        <a class="myitem-top" href="#"><h4>【 CSS 】</h4>
+                        <strong>按钮效果，功能全面.</strong></a>     
+                    </div>                
+                    <div>     
+                        <a class="myitem-top" href="#"><h4>【  JavaScript 】</h4>
+                        <strong>按钮效果，功能全面.</strong></a>     
+                    </div>                                
+      
+                </div>             
+            </div>   
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
