@@ -14,7 +14,7 @@ def upload(request):
         if not myFile:
             messages.info(request, '没有选择文件！')  
             return HttpResponseRedirect('#')   
-        f = open(os.path.join("mysite/blog/static/upload",myFile.name),'wb+')    # 打开特定的文件进行二进制的写操作        
+        f = open(os.path.join("blog/static/upload",myFile.name),'wb+')    # 打开特定的文件进行二进制的写操作        
         for chunk in myFile.chunks():      # 分块写入文件  
             f.write(chunk)  
         f.close() 
@@ -28,8 +28,8 @@ def upfolder(request):
         upimg =request.FILES.getlist("upimg", None)        #第一个目录 获取upimg文件列表
         upvideo =request.FILES.getlist("upvideo", None)    #第二个目录 获取upvideo文件列表
         
-        writefile(request,upimg,'mysite/blog/static/upimg')        
-        writefile(request,upvideo,'mysite/blog/static/upvideo')
+        writefile(request,upimg,'blog/static/upimg')        
+        writefile(request,upvideo,'blog/static/upvideo')
     return  render(request, 'blog/upfolder.html', context=locals())
 
 def writefile(request,upname,savepath):
