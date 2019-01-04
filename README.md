@@ -1,1 +1,4 @@
-横向垂直菜单  部署正常
+# ZZLARGE-Project-DjangoTest
+
+Python2.7+
+Python3.5+
