@@ -1,4 +1,1 @@
-# ZZLARGE-Project-DjangoTest
-
-Python2.7+
-Python3.5+
+将远程主机数据库数据备份，自动上传到Git
