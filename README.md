@@ -1,1 +1,5 @@
-将远程主机数据库数据备份，自动上传到Git 2019.01.03
+python3.5 - django1.11.5 部署正常
+
+一、Django-Rest-Framework框架
+
+
