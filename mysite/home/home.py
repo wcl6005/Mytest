@@ -28,7 +28,11 @@ def wx_uploadFile(request):
     if request.method == 'POST':   
         myfile = request.FILES.get("file", None)
         if myfile:
-            WriteFile(myfile)              
+            WriteFile(myfile) 
+        else:
+            with open('name_img.jpg','wb') as file:
+                file.write('err')
+                         
     mylist = [{"name" : name}] 
     return JsonResponse(mylist, safe = False) 
 
