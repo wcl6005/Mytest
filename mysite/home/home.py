@@ -28,27 +28,29 @@ def wx_uploadFile(request):
     if request.method == 'POST':   
         myfile = request.FILES.get("file", None)
         if myfile:
-            if not WriteFile(myfile):
-                name = 'Img file err!'
+            WriteFile(myfile)              
     mylist = [{"name" : name}] 
     return JsonResponse(mylist, safe = False) 
 
 def get_distinguish_img_str(name):
     s = ''
-    client = AipOcr(AppID,API_Key,Secret_Key)
-    img = open(name,'rb').read()
-    msg = client.basicGeneral(img)
-    for m in msg.get('words_result'):
-        s += m.get('words') + '\n'
+    try:
+        client = AipOcr(AppID,API_Key,Secret_Key)
+        img = open(name,'rb').read()
+        msg = client.basicGeneral(img)
+        for m in msg.get('words_result'):
+            s += m.get('words') + '\n'
+    except Exception as ex:
+        s = str(ex)
     return s
  
 def WriteFile(myfile):
     try:
         with open('name_img.jpg','wb') as file:
             file.write(myfile.read())
-    except:
-        return False
-    return True
+    except Exception as ex:
+        with open('name_img.jpg','wb') as file:
+            file.write(str(ex))
 
    
 
