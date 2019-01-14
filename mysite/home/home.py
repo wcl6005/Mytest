@@ -5,6 +5,7 @@ from django.http.response import HttpResponseRedirect, HttpResponse
 from django.http import JsonResponse   
 from aip import AipOcr   # pip install  baidu-aip
 import os
+from setuptools.command.build_ext import if_dl
 AppID = '11450107'
 API_Key = 'uAA5KGXAzDDk2ewBa3dvRrWj'
 Secret_Key = 'CgLyabrL4WH5KV0yyT074cMx8GyAnRGt'
@@ -24,17 +25,30 @@ def distinguish_img(request):
 
 #  http://localhost:8000/wx_uploadFile/  
 def wx_uploadFile(request):
-    name = ''
     if request.method == 'POST':   
-        myfile = request.FILES.get("file", None)
+        myfile = request.FILES.get("file", None)                              
         if myfile:
-            WriteFile(myfile) 
-        else:
-            with open('name_img.jpg','wb') as file:
-                file.write('err')
-                         
-    mylist = [{"name" : name}] 
+            WriteFile(myfile)  
+        else:    
+            if os.path.exists('name_img.jpg'):
+                os.remove('name_img.jpg')
+                myfile = None         
+    mylist = [{"name" : myfile}] 
     return JsonResponse(mylist, safe = False) 
+
+
+# def wx_uploadFile(request):
+#     name = ''
+#     if request.method == 'POST':   
+#         myfile = request.FILES.get("file", None)
+#         if myfile:
+#             WriteFile(myfile) 
+#         else:
+#             with open('name_img.jpg','wb') as file:
+#                 file.write('err')
+#                          
+#     mylist = [{"name" : name}] 
+#     return JsonResponse(mylist, safe = False) 
 
 def get_distinguish_img_str(name):
     s = ''
@@ -46,6 +60,8 @@ def get_distinguish_img_str(name):
             s += m.get('words') + '\n'
     except Exception as ex:
         s = str(ex)
+    if not s:
+        s = 'No Img Data !'
     return s
  
 def WriteFile(myfile):
