@@ -15,29 +15,25 @@ def img_recog(reuqest):
     data = {'imgdata': '识别图像中的字符串 okokok!'}
     return JsonResponse(data) 
 
-#  http://localhost:8000/img_to_data/  
-def img_to_data(request):
-    res = get_img_str(IMG_NAME)
-    mylist = [{"res" : res}]
-    print(res) 
+#  http://localhost:8000/distinguish_img/  
+def distinguish_img(request):
+    name ='name_img.jpg'   
+    res = get_distinguish_img_str(name)
+    mylist = [{"res" : res}] 
     return JsonResponse(mylist, safe = False) 
 
-#  http://localhost:8000/wx_uploadFile/ 
+#  http://localhost:8000/wx_uploadFile/  
 def wx_uploadFile(request):
     name = ''
-    try:
-        if request.FILES:
-            MyImg = request.FILES.get("file", None)
-            if MyImg:
-                name = MyImg.name
-                WriteFile(MyImg, IMG_NAME) #保存图像文件 IMG_NAME
-    except Exception as ex:
-        print(ex)
-        name = ex 
-    mylist = [{"name" : name}]
+    if request.method == 'POST':   
+        myfile = request.FILES.get("file", None)
+        if myfile:
+            if not WriteFile(myfile):
+                name = 'Img file err!'
+    mylist = [{"name" : name}] 
     return JsonResponse(mylist, safe = False) 
 
-def get_img_str(name):
+def get_distinguish_img_str(name):
     s = ''
     client = AipOcr(AppID,API_Key,Secret_Key)
     img = open(name,'rb').read()
@@ -45,16 +41,14 @@ def get_img_str(name):
     for m in msg.get('words_result'):
         s += m.get('words') + '\n'
     return s
-
-
-def WriteFile(fread,writefilepath):
-    size = 1024 #每次读字节数
-    fp = open(writefilepath,'w+') 
-    while True:
-        chunk = fread.read(size)
-        if not chunk:
-            break
-        fp.write(chunk)       
+ 
+def WriteFile(myfile):
+    try:
+        with open('name_img.jpg','wb') as file:
+            file.write(myfile.read())
+    except:
+        return False
+    return True
 
    
 
