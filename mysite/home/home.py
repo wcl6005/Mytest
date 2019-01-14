@@ -11,17 +11,7 @@ Secret_Key = 'CgLyabrL4WH5KV0yyT074cMx8GyAnRGt'
 #使用baidu-aip模块 识别图像中的中文okokok! 优点是：快、准、简洁 
 #  http://localhost:8000/home/img_recognitions  
 def img_recog(reuqest):  
-    #图像
-    name = '/Users/wuchunlong/image.png'       
-    imgdata = ''
-    client = AipOcr(AppID,API_Key,Secret_Key)
-    f = open(name,'rb')
-    img = f.read()
-    f.close()
-    msg = client.basicGeneral(img)
-    for m in msg.get('words_result'):
-        imgdata += m.get('words') +'<br>' 
-    data = {'imgdata': imgdata}
+    data = {'imgdata': 'ok'}
     return JsonResponse(data) 
 
 

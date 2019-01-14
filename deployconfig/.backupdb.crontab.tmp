@@ -1,0 +1,1 @@
+0 */1 * * * python /home/www/AccountOnline-5b3794134d48/tool/backupdb.py
