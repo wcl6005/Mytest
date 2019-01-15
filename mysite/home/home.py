@@ -32,7 +32,7 @@ def wx_uploadFile(request):
         else:    
             if os.path.exists('name_img.jpg'):
                 os.remove('name_img.jpg')
-                myfile = None         
+                myfile = 'None'         
     mylist = [{"name" : myfile}] 
     return JsonResponse(mylist, safe = False) 
 
