@@ -30,7 +30,12 @@ def distinguish_img(request):
 
 #  http://localhost:8000/wx_uploadFile/  
 def wx_uploadFile(request):
+    with open('./1111.jpg','wb') as fp:
+        fp.write('1111'.encode("utf-8"))    
     if request.method == 'POST':   
+        with open('./2222.jpg','wb') as fp:
+            fp.write('2222'.encode("utf-8"))
+
         myfile = request.FILES.get("file", None)                              
         if myfile:
             WriteFile(myfile)  
