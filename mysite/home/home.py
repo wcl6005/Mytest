@@ -11,8 +11,13 @@ API_Key = 'uAA5KGXAzDDk2ewBa3dvRrWj'
 Secret_Key = 'CgLyabrL4WH5KV0yyT074cMx8GyAnRGt'
 IMG_NAME = 'img_name.jpg'
  
+def test(reuqest):
+    with open('./aaaaaaa.jpg','wb') as fp:
+        fp.write('ok')
+    return HttpResponse('ok')
+
 #  http://localhost:8000  
-def img_recog(reuqest):  
+def img_recog(reuqest):      
     data = {'imgdata': '识别图像中的字符串 okokok!'}
     return JsonResponse(data) 
 
