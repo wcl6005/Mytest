@@ -5,4 +5,5 @@ urlpatterns = [
     url(r'^$', home.img_recog, name="img_recog"),    
     url(r'^distinguish_img/', home.distinguish_img, name="distinguish_img"),     
     url(r'^wx_uploadFile/', home.wx_uploadFile, name="wx_uploadFile"),     
+    url(r'^test/', home.test, name="test"),
 ]

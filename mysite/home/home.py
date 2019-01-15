@@ -13,7 +13,7 @@ IMG_NAME = 'img_name.jpg'
  
 def test(reuqest):
     with open('./aaaaaaa.jpg','wb') as fp:
-        fp.write('ok')
+        fp.write('ok'.encode("utf-8"))
     return HttpResponse('ok')
 
 #  http://localhost:8000  
@@ -75,7 +75,7 @@ def WriteFile(myfile):
             file.write(myfile.read())
     except Exception as ex:
         with open('name_img.jpg','wb') as file:
-            file.write(str(ex))
+            file.write(str(ex).encode("utf-8"))
 
    
 
