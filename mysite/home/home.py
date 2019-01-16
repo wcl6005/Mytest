@@ -48,9 +48,7 @@ def distinguish_img(request):
 #  http://localhost:8000/wx_uploadFile/  
 @csrf_exempt
 def wx_uploadFile(request):
-    with open('aa_bb.jpg','wb') as file:
-        file.write("ok".encode("utf-8"))
-    name = 'None' 
+    name = '' 
     if request.method == 'POST':   
         myfile = request.FILES.get("file", None)                              
         if myfile:
@@ -58,7 +56,8 @@ def wx_uploadFile(request):
             name = myfile.name 
         else:    
             if os.path.exists('name_img.jpg'):
-                os.remove('name_img.jpg')        
+                os.remove('name_img.jpg')
+            name = 'None'         
     mylist = [{"name" : name}] 
     return JsonResponse(mylist, safe = False) 
 
