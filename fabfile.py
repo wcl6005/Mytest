@@ -48,7 +48,6 @@ def init_os(config_os):
         run('mkdir -p logs tool')
         run('crontab -l | grep -v "python {}" | crontab'.format(remote_website_dir))
 
-
 def config_u1604():
     with lcd(local_config_dir):
         with cd('/etc/apt'):
@@ -56,32 +55,6 @@ def config_u1604():
     sudo('apt-get update')
     sudo('apt-get install -y python-minimal python-dev python-pip')
     sudo('apt-get install -y python3 python3-dev python3-pip')    
-
-def install_requirements_u1604():
-    sudo('if [ -f /etc/apt/sources.list ];then cp /etc/apt/sources.list /etc/apt/sources.list.$(date +"%y%m%d%H%M%S");fi')
-    with lcd(local_config_dir):
-        with cd('/etc/apt'):
-            put('./sources.list', './', use_sudo=True)
-    sudo('apt-get update')
-    sudo('apt-get install -y python-minimal python-dev python-pip')
-    sudo('apt-get install -y python3 python3-dev python3-pip')
-    sudo('pip install virtualenv')
-    sudo('apt-get install -y nginx')
-    sudo('apt-get install -y supervisor')
-    sudo('apt-get install -y git')
-    sudo('apt-get install -y gettext')
-    sudo('apt-get install -y libffi-dev')
-    sudo('apt-get install -y libffi-dev libssl-dev libxml2-dev libxslt1-dev libjpeg8-dev zlib1g-dev')
-
-    sudo('rm -rf {}'.format(remote_website_dir))
-    sudo('mkdir -p "{}"'.format(remote_app_dir))
-    sudo('chmod -R 777 {}'.format(remote_app_dir))
-    sudo('mkdir -p "{}"'.format(remote_website_dir))
-    sudo('chown -R {}:{} {}'.format(env.user, env.user, remote_website_dir))
-    with cd(remote_website_dir):
-        run('virtualenv -p python{} env'.format(env.python_ver))
-        run('mkdir -p logs')
-
 
 def copy_project_dir():
     with cd(remote_website_dir):
@@ -261,7 +234,6 @@ def deployRecover():
 # fab -c fabricrc init_deploy_u1604
 def init_deploy_u1604():
     push_deploy()
-#    install_requirements_u1604()
     init_os(config_u1604)
 #    install_mysql()
     deploy()
