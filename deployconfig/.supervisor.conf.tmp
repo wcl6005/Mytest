@@ -1,7 +1,7 @@
 [program:AccountOnline-5b3794134d48]
 command   = /home/www/AccountOnline-5b3794134d48/env/bin/gunicorn --bind localhost:8000 --workers 5 --worker-class gevent mysite.wsgi:application
 directory = /home/www/AccountOnline-5b3794134d48/src/mysite
-user      = wuchunlong123
+user      = wuchunlong
 
 startsecs = 3
 
