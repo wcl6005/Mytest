@@ -237,7 +237,7 @@ def status():
 
 def push_deploy():
     with lcd(local_app_dir):
-        sudo('rm -rf env')
+        local('rm -rf env')
         local('git add . ')
         local('git commit -am "add"')
         local('git push')
