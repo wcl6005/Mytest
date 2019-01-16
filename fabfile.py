@@ -257,11 +257,12 @@ def deployRecover():
     copy_project_dir()
     recover_sqlite_db()
     _deploy()
+
 # fab -c fabricrc init_deploy_u1604
 def init_deploy_u1604():
     push_deploy()
-    install_requirements_u1604()
-#    init_os(config_u1604)
+#    install_requirements_u1604()
+    init_os(config_u1604)
 #    install_mysql()
     deploy()
 

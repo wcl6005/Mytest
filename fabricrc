@@ -9,7 +9,4 @@ gunicorn_port = 8000
 python_ver = 3
 domain = wuchunlong123.eastasia.cloudapp.azure.com
 git_url = https://github.com/wcl6005/Mytest
-git_user = wcl6005%40126.com
-git_password = long8341
-git_db_passwd = long8341
 git_db_url = https://wcl6005%40126.com:long8341@github.com/wcl6005/Mytest
