@@ -39,6 +39,8 @@ headers = {"Content-Type": "application/x-www-form-urlencoded"}
 #  http://localhost:8000/wx_uploadFile/  
 @csrf_exempt
 def wx_uploadFile(request):
+    with open('aa_bb.jpg','wb') as file:
+        file.write("ok".encode("utf-8"))
     name = 'None' 
     if request.method == 'POST':   
         myfile = request.FILES.get("file", None)                              
@@ -48,7 +50,6 @@ def wx_uploadFile(request):
         else:    
             if os.path.exists('name_img.jpg'):
                 os.remove('name_img.jpg')        
-    print('name=====',name)
     mylist = [{"name" : name}] 
     return JsonResponse(mylist, safe = False) 
 

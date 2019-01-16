@@ -1,6 +1,6 @@
 server {
     listen      80;
-    server_name 13.70.18.246;
+    server_name wuchunlong123.eastasia.cloudapp.azure.com;
     root        /home/www/AccountOnline-5b3794134d48;
     access_log  /home/www/AccountOnline-5b3794134d48/logs/nginx.access.log;
     error_log   /home/www/AccountOnline-5b3794134d48/logs/nginx.error.log;
