@@ -1,24 +1,24 @@
 server {
     listen      80;
-    server_name wuchunlong123.eastasia.cloudapp.azure.com;
-    root        /home/www/AccountOnline-5b3794134d48;
-    access_log  /home/www/AccountOnline-5b3794134d48/logs/nginx.access.log;
-    error_log   /home/www/AccountOnline-5b3794134d48/logs/nginx.error.log;
+    server_name 172.16.192.130;
+    root        /home/www/AccountOnline;
+    access_log  /home/www/AccountOnline/logs/nginx.access.log;
+    error_log   /home/www/AccountOnline/logs/nginx.error.log;
     
     # 处理静态文件/favicon.ico:
     location /favicon.ico {
-        root /home/www/AccountOnline-5b3794134d48/src/mysite;
+        root /home/www/AccountOnline/src/mysite;
     }
 
     # 处理静态资源:
     location ~ ^\/static\/.*$ {
-        root /home/www/AccountOnline-5b3794134d48/src/mysite;
+        root /home/www/AccountOnline/src/mysite;
     }
     location ~ ^\/front\/.*$ {
-        root /home/www/AccountOnline-5b3794134d48/src;
+        root /home/www/AccountOnline/src;
     }
     location ~ ^\/example\/.*$ {
-        root /home/www/AccountOnline-5b3794134d48/src;
+        root /home/www/AccountOnline/src;
     }
     
     location / {

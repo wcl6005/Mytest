@@ -7,7 +7,10 @@ from fabric.api import (cd, env, lcd, put, prompt, local, sudo, run,
 from fabric.utils import warn
 
 
-project_name = '{}-{}'.format(env.project_name, env.uuid)
+project_name = env.project_name
+#project_name = '{}-{}'.format(env.project_name, env.uuid)
+#这里存在一个问题：以前是用现在这个状态部署的ok。现在若要改变工程名，部署会出错 ！2019.01.19
+
 local_app_dir = './'
 local_config_dir = './deployconfig'
 
@@ -66,7 +69,7 @@ def copy_project_dir():
             run(r'cd src/mysite && rm -rf static '
                 '&& python manage.py collectstatic '
                 '&& cd -')
-        run(r'cp src/mysite/db.sqlite3 src/mysite/production.sqlite3')
+        run(r'cp src/mysite/db.sqlite3 src/mysite/production.sqlite3') #add 2019.01.12
 
 def recover_sqlite_db():
     with cd(remote_website_dir):
@@ -74,17 +77,18 @@ def recover_sqlite_db():
             'then cp ./production.sqlite3.%s mysite/production.sqlite3; '
             'fi' % (NOW_MARK, NOW_MARK))
 
-def configure_db_repo():
+
+#在远程主机仓库，创建一个初始的数据库压缩文件(含密码) add 2019.01.13 db.txt  fab -c fabricrc  init_db_txt
+def init_db_txt(): 
     with cd(remote_website_dir):
-        run(r'[ ! -d db ] && git clone {} db '
-            '|| [ false ]'.format(env.git_db_url))
-        run(r'[ -d db ] && cd db && git pull && cd - || [ false ]')
-        run(r'[ ! -d db ] '
-            '&& cp src/mysite/demo.sqlite3 src/mysite/production.sqlite3 '
-            '|| [ false ]')
-        run(r'[ -d db ] '
-            '&& cp db/demo.sqlite3 src/mysite/production.sqlite3 '
-            '|| [ false ]')
+        with cd('src'):
+            run('rm -rf db.txt && '
+                'mkdir -p db1 && '  
+                'chmod -R 777 db1 && '
+                'cp ./mysite/db.sqlite3 ./db1/production.sqlite3 && '
+                'tar -zcvf - db1|openssl des3 -salt -k "%s" | dd of=db.txt && '
+                'rm -rf db1 && '
+                'git add . && git commit -a -m "add" && git push || [ false ]' %(env.git_db_passwd))  
 
 def configure_crontab():
     with lcd(local_config_dir):
@@ -195,29 +199,23 @@ def db_migrate():
 def status():
     sudo('supervisorctl status')
 
-# def push_deploy():
-#     """
-#     1. Commit new files
-#     2. Restart gunicorn via supervisor
-#     """
-#     with lcd(local_app_dir):
-#         local('git add -A')
-#         commit_message = prompt("Commit message?")
-#         local('git commit -am "{}"'.format(commit_message))
-#         local('git push production master')
-#     db_migrate()
-#     restart_app()
-
 def push_deploy():
+    """
+    1. Commit new files
+    2. Restart gunicorn via supervisor
+    """
     with lcd(local_app_dir):
-        local('rm -rf env')
-        local('git add . ')
-        local('git commit -am "add"')
-        local('git push')
+        local('git add -A')
+        commit_message = prompt("Commit message?")
+        local('git commit -am "{}"'.format(commit_message))
+        local('git push production master')
+    db_migrate()
+    restart_app()
 
 def _deploy():
-    #configure_db_repo()
-    #configure_crontab()
+    configure_db_repo()  #
+    init_db_txt()
+    configure_crontab()
     configure_nginx()
     configure_supervisor()
     restart_app()
@@ -233,7 +231,6 @@ def deployRecover():
 
 # fab -c fabricrc init_deploy_u1604
 def init_deploy_u1604():
-    push_deploy()
     init_os(config_u1604)
 #    install_mysql()
     deploy()

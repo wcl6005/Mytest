@@ -12,10 +12,10 @@ if __name__ == "__main__":
     from django.contrib.auth.models import User
 
     
-    user = User.objects.create_superuser('admin', 'admin@test.com','1234qwer')
+    user = User.objects.create_superuser('admin', 'admin@test.com','1234qazx')
     user.save()
        
-    user = User.objects.create_user('test', 'test@test.com','1234qwer')
+    user = User.objects.create_user('test', 'test@test.com','1234qazx')
     user.is_staff = True
     user.is_superuser = False
     user.save()      
