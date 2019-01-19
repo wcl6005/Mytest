@@ -223,8 +223,7 @@ def push_deploy():
     restart_app()
 
 def _deploy():
-    #configure_db_repo()  #
-    init_db_txt()
+    #init_db_txt()
     configure_crontab()
     configure_nginx()
     configure_supervisor()
@@ -241,7 +240,9 @@ def deployRecover():
 
 # fab -c fabricrc init_deploy_u1604
 def init_deploy_u1604():
+    init_local_db_txt()
     init_os(config_u1604)
 #    install_mysql()
+    
     deploy()
 
