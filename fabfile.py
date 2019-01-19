@@ -90,6 +90,16 @@ def init_db_txt():
                 'rm -rf db1 && '
                 'git add . && git commit -a -m "add" && git push || [ false ]' %(env.git_db_passwd))  
 
+# fab -c fabricrc init_local_db_txt
+def init_local_db_txt(): 
+    local('[ ! -f db.txt ] && '
+        'mkdir -p db1 && '  
+        'chmod -R 777 db1 && '
+        'cp ./mysite/db.sqlite3 ./db1/production.sqlite3 && '
+        'tar -zcvf - db1|openssl des3 -salt -k "%s" | dd of=db.txt && '
+        'rm -rf db1 db2 && '
+        'git add . && git commit -a -m "add" && git push || [ false ]' %(env.git_db_passwd))  
+
 def configure_crontab():
     with lcd(local_config_dir):
         confStr = open('{}/backupdb.crontab'.format(local_config_dir)).read()
@@ -213,7 +223,7 @@ def push_deploy():
     restart_app()
 
 def _deploy():
-    configure_db_repo()  #
+    #configure_db_repo()  #
     init_db_txt()
     configure_crontab()
     configure_nginx()
