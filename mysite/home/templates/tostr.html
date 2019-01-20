@@ -7,13 +7,13 @@
 　　　　<input type="file" name="upfile" value="">
 	</form>
 	<p>上传识别图片:支持识别的文件大小,不得大于 8MB;</p>
-	<img src="/static/img_name.jpg"  alt="支持的图片格式：jpg、gif、png、bmp。" width='480px' height='636px'>
+	<img src="/static/img_name.jpg"  alt="支持的图片格式：jpg、gif、png、bmp。" width='480px' height='630px'>
 </div>
 
 <div class="col-md-7">	
 	<div class="col-xs-12">
 		<p>识别结果：</p>			
-		<textarea rows="28" cols="100">{{ res|safe }}</textarea>
+		<textarea rows="29" cols="100">{{ res|safe }}</textarea>
 		<p class="btn-bar">
 			<a class="btn btn-lg btn-success" data-clipboard-text="{{ res|safe }}" href=""><i class="fa fa-copy"></i> 复制内容 </a>
 			<a class="btn btn-lg btn-danger" href="/tostr/"> 再识别一张图片 </a>
