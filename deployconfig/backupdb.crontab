@@ -1,2 +1,0 @@
-*/1 * * * * echo 123 >> /tmp/testCrontabRun
-*/1 * * * * python {remote_website_dir}/tool/backupdb.py
