@@ -10,6 +10,7 @@ git_db_passwd = '6yhn(IJN&U*'
 # fab git_push
 def git_push():
     local('rm -rf env && git add . && git commit -a -m "add" && git push')
+
 # fab push
 def push(): 
     '''
