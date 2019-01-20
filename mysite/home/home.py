@@ -13,7 +13,7 @@ import os
 from io import BytesIO as StringIO
 
 UPFILE_SIZE = 8000000 #设置上传文件大小(8MB)
-IMG_NAME = 'static_common/img_name.jpg'
+IMG_NAME = 'static/img_name.jpg'
 
 AppID = '11450107'
 API_Key = 'uAA5KGXAzDDk2ewBa3dvRrWj'
