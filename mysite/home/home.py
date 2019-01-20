@@ -10,10 +10,10 @@ from django.http.response import HttpResponseRedirect, HttpResponse
 from django.http import JsonResponse   
 from aip import AipOcr   # pip install  baidu-aip
 import os
-from io import BytesIO as StringIO
+import shutil 
 
 UPFILE_SIZE = 8000000 #设置上传文件大小(8MB)
-IMG_NAME = 'static/img_name.jpg'
+IMG_NAME = './static/img_name.jpg'
 
 AppID = '11450107'
 API_Key = 'uAA5KGXAzDDk2ewBa3dvRrWj'
@@ -38,6 +38,7 @@ def tostr(request):
         upfile = request.FILES.get("upfile", None)                              
         res = get_distinguish_img_str(IMG_NAME) if save_upfile(upfile) \
             else '上传文件大于 %s MB' %(UPFILE_SIZE/1000000)       
+        shutil.copy(IMG_NAME,'./static_common')
         return  render(request, 'tostr.html', context=locals())      
     return  render(request, 'recog.html', context=locals())
 
