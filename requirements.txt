@@ -9,3 +9,5 @@ django-filter
 monthdelta
 Pillow
 baidu-aip
+openpyxl
+pystrich

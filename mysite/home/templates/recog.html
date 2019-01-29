@@ -1,5 +1,21 @@
 {% extends '__base__.html' %}
 {% block content %}
+<script> 
+$(document).ready(function(){
+  $("#flip").click(function(){
+    $("#panel").slideToggle("slow");
+  });
+});
+</script>
+ 
+<style type="text/css"> 
+#flip{}
+#panel{
+	display:none;
+}
+</style>
+<div id="flip" class="import btn btn-lg btn-success">使用须知</div>
+<div id="panel">
 
 <div class="col-md-12">		
 	
@@ -24,7 +40,8 @@
 		三、本工具识别准确率由图片质量而定。高质量的照片，识别准确率为100%。
 		</p>				
 	</div> 
-
+</div>
+</div>
 <div style="padding-left:360px;padding-top:20px;">
 
     <form  style="display:none" action="#" method="post" enctype="multipart/form-data">
@@ -38,10 +55,6 @@
 </div>
 
 
-
-
-
-</div>
 <script>
 $("p1").hide();
 /* 选择文件自动提交 模块 */
