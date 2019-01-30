@@ -6,7 +6,8 @@
 # 原因：域名信息未设置 https://blog.csdn.net/ycocol/article/details/79295504
 
 from django.shortcuts import render
-from django.http.response import HttpResponseRedirect, HttpResponse
+from django.http.response import HttpResponseRedirect, HttpResponse,\
+    StreamingHttpResponse
 from django.http import JsonResponse   
 from aip import AipOcr   # pip install  baidu-aip
 import os,time,datetime,shutil
@@ -186,7 +187,8 @@ def Code128(codestr,bar_width,bar_height,bar_fontSize,bar_margin):
     '''
     电子表格，A列存放生成的条形码
     '''    
-    NOW_TIME = datetime.datetime.now().strftime('%Y%m%d[%H_%M_%S]')  # 现在时间做文件名
+    #NOW_TIME = datetime.datetime.now().strftime('%Y%m%d[%H_%M_%S]')  # 现在时间做文件名
+    NOW_TIME = datetime.datetime.now().strftime('%H_%M_%S')
     file1 =  '%s/%s.xlsx' %(TMP_BAR_CODE_PATH,NOW_TIME)
     delallObsolete(TMP_BAR_CODE_PATH)  #删除目录TMP_BAR_CODE_PATH下的过时文件
     shutil.copyfile(BAR_CODE_PATH + '/start.xlsx',file1)
@@ -239,6 +241,29 @@ def batch_code(request):
             createNum,nowtime = Code128(userInput,bar_width,bar_height,bar_fontSize,bar_margin)
         return  render(request, 'batch_code_down.html', context=locals())            
     return  render(request, 'batch_code.html', context=locals())    
+
+def downFile(filename,downfilename):
+    def file_iterator(file_name, chunk_size=512):
+        with open(file_name, 'rb') as f:    
+            while True:
+                c = f.read(chunk_size)
+                if c:
+                    yield c
+                else:
+                    break
+    response = StreamingHttpResponse(file_iterator(filename))
+    response['Content-Type'] = 'application/octet-stream'
+    response['Content-Disposition'] = 'attachment;filename="{0}"'.format(downfilename)
+    return response
+
+
+#文件下载  http://localhost:8000/downLoadFile/
+def downLoadFile(request):
+    cleanData = request.GET.dict()
+    nowtime = cleanData.get('nowtime','')
+    filename ='%s/%s.xlsx' %(TMP_BAR_CODE_PATH,nowtime)
+    downfilename = os.path.split(filename)[1] 
+    return downFile(filename,downfilename)
 
 
 def QR_code(request):

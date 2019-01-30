@@ -15,7 +15,7 @@ urlpatterns = [
 
     url(r'^bar_code/', home.bar_code, name="bar_code"),
     url(r'^batch_code/', home.batch_code, name="batch_code"),
-    
+    url(r'^downLoadFile/', home.downLoadFile, name="downLoadFile"),    
     url(r'^QR_code/', home.QR_code, name="QR_code"), 
     
 ]
