@@ -242,7 +242,9 @@ def batch_code(request):
         return  render(request, 'batch_code_down.html', context=locals())            
     return  render(request, 'batch_code.html', context=locals())    
 
-def downFile(filename,downfilename):
+def downFile(filename):
+    downfilename ='%s%s' %(datetime.datetime.now().strftime('%H_%M_%S'),\
+                               os.path.splitext(filename)[1] ) 
     def file_iterator(file_name, chunk_size=512):
         with open(file_name, 'rb') as f:    
             while True:
@@ -259,11 +261,8 @@ def downFile(filename,downfilename):
 
 #文件下载  http://localhost:8000/downLoadFile/
 def downLoadFile(request):
-    cleanData = request.GET.dict()
-    nowtime = cleanData.get('nowtime','')
-    filename ='%s/%s.xlsx' %(TMP_BAR_CODE_PATH,nowtime)
-    downfilename = os.path.split(filename)[1] 
-    return downFile(filename,downfilename)
+    filename ='%s/%s.xlsx' %(TMP_BAR_CODE_PATH, request.GET.get('nowtime',''))
+    return downFile(filename)
 
 
 def QR_code(request):
