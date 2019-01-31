@@ -13,6 +13,5 @@
 2、部署到远程主机。在 ../fab_u1604 目录下执行 $ fab -c fabricrc init_deploy_u1604<br>
 六、存在问题<br>
 1、批量生成条形码，输入框第二行内容也预览了。正确：应该只预览第一行内容。<br>
-2、QR_code.html中，qrcode16.js文件，在线使用和下载到本地使用，对浏览器Firefox支持有影响
-<script src="https://static.gaitubao.net/js/qrcode16.js"></script> 不支持浏览器：Firefox<br> 
-<script src="/static/prettify/js/qrcode16.js"></script>   不知为什么？<br>
+2、QR_code.html中，qrcode16.js文件，在线使用和下载到本地使用，
+<script src="https://static.gaitubao.net/js/qrcode16.js"></script> 不支持浏览器：Firefox <script src="/static/prettify/js/qrcode16.js"></script>   不知为什么？<br>
